@@ -4,121 +4,141 @@
   <meta charset="utf-8" />
   <title>SPRAXXX.TV | The Nation Live</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SPRAXXX.TV — brotherhood on the air, open mic, truth, and movement." />
+  <meta name="description" content="SPRAXXX — brotherhood on the air: open mic, truth, and movement. Listen, speak, build the Nation." />
+  <meta name="theme-color" content="#000000" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="SPRAXXX.TV — The Nation Live" />
+  <meta property="og:description" content="Brotherhood on the air: open mic, truth, and movement. New StarMaker cover inside." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og.jpg" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SPRAXXX.TV — The Nation Live" />
+  <meta name="twitter:description" content="Open mic, truth, and movement. New StarMaker cover inside." />
+  <meta name="twitter:image" content="/og.jpg" />
   <style>
-    :root { --bg:#000; --fg:#fff; --ink:#ff2a2a; --muted:#888; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--fg); }
-    a { color: var(--ink); text-decoration: none; }
-    header { padding: 20px 16px; text-align:center; border-bottom:1px solid #111; }
-    header h1 { margin:0; font-size: clamp(28px, 4vw, 40px); letter-spacing: 1px; }
-    header p { margin:6px 0 0; color: var(--muted); }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 18px 16px 60px; }
-    .block { margin: 28px 0; background: #0a0a0a; border:1px solid #151515; border-radius: 12px; overflow:hidden; }
-    .block h2 { margin: 0; padding: 14px 16px; font-size: 18px; background: #0f0f0f; border-bottom:1px solid #151515; }
-    .block .inner { padding: 14px; }
-    .player { position: relative; aspect-ratio: 16/9; width: 100%; background:#000; border-radius:10px; overflow:hidden; }
-    iframe { width:100%; height:100%; border:0; }
-    .row { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
-    .btn { display:inline-block; padding:10px 14px; font-weight:700; border:1px solid var(--ink); border-radius:10px; }
-    .btn.filled { background: var(--ink); color:#fff; }
-    .muted { color: var(--muted); font-size: 14px; }
-    footer { text-align:center; padding: 26px 12px; color: var(--muted); border-top:1px solid #111; }
+    :root{--bg:#000;--fg:#fff;--ink:#ff2a2a;--muted:#9a9a9a;--card:#0a0a0a;--edge:#151515;--r:12px}
+    *{box-sizing:border-box}html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+    a{color:var(--ink);text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:18px 16px 56px}
+    header{padding:20px 16px;text-align:center;border-bottom:1px solid #111}
+    header h1{margin:0;font-size:clamp(28px,4vw,40px);letter-spacing:.5px}
+    header p{margin:6px 0 0;color:var(--muted)}
+    .domains{margin-top:10px;font-size:14px}
+    .domains a{color:#fff;opacity:.9;border:1px solid var(--edge);padding:6px 10px;border-radius:999px;display:inline-block;margin:4px 4px 0}
+    main h2{margin:0;padding:14px 16px;font-size:18px;background:#0f0f0f;border-bottom:1px solid var(--edge)}
+    .block{margin:28px 0;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);overflow:hidden}
+    .inner{padding:14px}
+    .player{position:relative;aspect-ratio:16/9;width:100%;background:#000;border-radius:10px;overflow:hidden}
+    iframe{width:100%;height:100%;border:0}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-block;padding:10px 14px;font-weight:700;border:1px solid var(--ink);border-radius:10px}
+    .btn.filled{background:var(--ink);color:#fff}
+    .muted{color:var(--muted);font-size:14px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    footer{text-align:center;padding:26px 12px;color:var(--muted);border-top:1px solid #111}
   </style>
 </head>
 <body>
   <header>
     <h1>SPRAXXX.TV 🔥</h1>
     <p>Brotherhood on the air — open mic, truth, and movement.</p>
+    <nav class="domains" aria-label="SPRAXXX domains">
+      <a href="https://spraxxx.com" target="_blank" rel="noopener">spraxxx.com</a>
+      <a href="https://spraxxx.ai" target="_blank" rel="noopener">spraxxx.ai</a>
+      <a href="https://spraxxx.tv" target="_blank" rel="noopener">spraxxx.tv</a>
+      <a href="https://spraxxx.net" target="_blank" rel="noopener">spraxxx.net</a>
+    </nav>
   </header>
 
   <main class="wrap">
 
-    <!-- STARMAKER FEATURED PERFORMANCE #1 -->
-    <section class="block" id="starmaker1">
-      <h2>🎙️ Featured: LAST KISS (Acoustic) — Maple</h2>
+    <!-- NEW: StarMaker headliner -->
+    <section class="block" id="starmaker0">
+      <h2>🌙 Now Playing: HEY THERE DELILAH (Female Key) — Maple</h2>
       <div class="inner">
         <div class="player">
           <iframe
-            src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349473114083&share_type=copylink"
-            allowfullscreen
-            referrerpolicy="no-referrer"
+            src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349468876074&share_type=copylink"
+            title="Hey There Delilah — Maple (female key) on StarMaker"
+            loading="lazy" allowfullscreen referrerpolicy="no-referrer"
           ></iframe>
         </div>
         <div class="row">
-          <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349473114083&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
-          <a class="btn" href="https://spraxxx.com" target="_blank" rel="noopener">Join the Nation</a>
+          <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349468876074&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
+          <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Feedback%20on%20Delilah%20cover">Send Feedback 💌</a>
         </div>
         <p class="muted">Tip: If the inline player doesn’t load, tap “Open in StarMaker.”</p>
       </div>
     </section>
 
-    <!-- STARMAKER FEATURED PERFORMANCE #2 -->
-    <section class="block" id="starmaker2">
-      <h2>🎙️ Featured: ANOTHER BRICK IN THE WALL — Maple</h2>
-      <div class="inner">
-        <div class="player">
-          <iframe
-            src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=7318349465997960&app=sm&from_user_id=7318349403180363&pg_rf_ca_vn=20&share_type=copylink"
-            allowfullscreen
-            referrerpolicy="no-referrer"
-          ></iframe>
+    <!-- Feature grid: StarMaker set -->
+    <section class="block" id="set">
+      <h2>🎙️ Featured Performances — Maple</h2>
+      <div class="inner grid">
+        <div>
+          <div class="player">
+            <iframe
+              src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349473114083&share_type=copylink"
+              title="LAST KISS (Acoustic) — Maple" loading="lazy" allowfullscreen referrerpolicy="no-referrer"
+            ></iframe>
+          </div>
+          <div class="row">
+            <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349473114083&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
+            <span class="muted">LAST KISS (Acoustic)</span>
+          </div>
         </div>
-        <div class="row">
-          <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=7318349465997960&app=sm&from_user_id=7318349403180363&pg_rf_ca_vn=20&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
-          <a class="btn" href="https://spraxxx.com" target="_blank" rel="noopener">Join the Nation</a>
+        <div>
+          <div class="player">
+            <iframe
+              src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=7318349465997960&app=sm&from_user_id=7318349403180363&pg_rf_ca_vn=20&share_type=copylink"
+              title="ANOTHER BRICK IN THE WALL — Maple" loading="lazy" allowfullscreen referrerpolicy="no-referrer"
+            ></iframe>
+          </div>
+          <div class="row">
+            <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=7318349465997960&app=sm&from_user_id=7318349403180363&pg_rf_ca_vn=20&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
+            <span class="muted">ANOTHER BRICK IN THE WALL</span>
+          </div>
         </div>
-        <p class="muted">Tip: If the inline player doesn’t load, tap “Open in StarMaker.”</p>
+        <div>
+          <div class="player">
+            <iframe
+              src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=10414574254312633&app=sm&from_sid=100038698755&pg_rf_ca_vn=20&share_type=copylink"
+              title="EVERYTHING I DO — Maple" loading="lazy" allowfullscreen referrerpolicy="no-referrer"
+            ></iframe>
+          </div>
+          <div class="row">
+            <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=10414574254312633&app=sm&from_sid=100038698755&pg_rf_ca_vn=20&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
+            <span class="muted">EVERYTHING I DO</span>
+          </div>
+        </div>
+        <div>
+          <div class="player">
+            <iframe
+              src="https://www.youtube.com/embed/t4axzmYKbNs"
+              title="Sharing My Thoughts / Dream Some Hard Times — SPRAXXX" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="row">
+            <a class="btn filled" href="https://youtu.be/t4axzmYKbNs" target="_blank" rel="noopener">Watch on YouTube</a>
+            <a class="btn" href="mailto:submissions@spraxxx.tv">Submit Your Track</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- STARMAKER FEATURED PERFORMANCE #3 -->
-    <section class="block" id="starmaker3">
-      <h2>🎙️ Featured: EVERYTHING I DO — Maple</h2>
-      <div class="inner">
-        <div class="player">
-          <iframe
-            src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=10414574254312633&app=sm&from_sid=100038698755&pg_rf_ca_vn=20&share_type=copylink"
-            allowfullscreen
-            referrerpolicy="no-referrer"
-          ></iframe>
-        </div>
-        <div class="row">
-          <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=10414574254312633&app=sm&from_sid=100038698755&pg_rf_ca_vn=20&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
-          <a class="btn" href="https://spraxxx.com" target="_blank" rel="noopener">Join the Nation</a>
-        </div>
-        <p class="muted">Tip: If the inline player doesn’t load, tap “Open in StarMaker.”</p>
-      </div>
-    </section>
-
-    <!-- YOUTUBE FEATURED SINGLE -->
-    <section class="block" id="youtube1">
-      <h2>🎧 Sharing My Thoughts / Dream Some Hard Times — Maple (SPRAXXX)</h2>
-      <div class="inner">
-        <div class="player">
-          <iframe
-            src="https://www.youtube.com/embed/t4axzmYKbNs"
-            title="Sharing My Thoughts / Dream Some Hard Times"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <div class="row">
-          <a class="btn filled" href="https://youtu.be/t4axzmYKbNs" target="_blank" rel="noopener">Watch on YouTube</a>
-          <a class="btn" href="mailto:submissions@spraxxx.tv">Submit Your Track</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- INTERNET ARCHIVE PICK -->
+    <!-- Internet Archive pick -->
     <section class="block" id="ia1">
       <h2>📼 Internet Archive Classic</h2>
       <div class="inner">
         <div class="player">
           <iframe
             src="https://archive.org/embed/night_of_the_living_dead"
-            title="Night of the Living Dead (1968, Public Domain)"
-            allowfullscreen
-            loading="lazy"
+            title="Night of the Living Dead (1968, Public Domain)" loading="lazy" allowfullscreen
           ></iframe>
         </div>
         <div class="row">
@@ -129,7 +149,7 @@
       </div>
     </section>
 
-    <!-- DIGNITY WALL -->
+    <!-- Dignity Wall -->
     <section class="block" id="dignity-wall">
       <h2>🧱 The Dignity Wall</h2>
       <div class="inner">
@@ -144,13 +164,17 @@
   </main>
 
   <footer>
-    <p>🌐 Explore the Nation: 
-      <a href="https://spraxxx.com" target="_blank" rel="noopener">spraxxx.com</a> · 
-      <a href="https://spraxxx.ai" target="_blank" rel="noopener">spraxxx.ai</a> · 
-      <a href="https://spraxxx.tv" target="_blank" rel="noopener">spraxxx.tv</a>
+    <p>🌐 Explore the Nation:
+      <a href="https://spraxxx.com" target="_blank" rel="noopener">spraxxx.com</a> ·
+      <a href="https://spraxxx.ai" target="_blank" rel="noopener">spraxxx.ai</a> ·
+      <a href="https://spraxxx.tv" target="_blank" rel="noopener">spraxxx.tv</a> ·
+      <a href="https://spraxxx.net" target="_blank" rel="noopener">spraxxx.net</a>
     </p>
-    <p class="muted">© SPRAXXX Nation — Brotherhood in Motion</p>
+    <p class="muted">© <span id="y"></span> SPRAXXX Nation — Brotherhood in Motion</p>
   </footer>
 
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+  </script>
 </body>
 </html>
