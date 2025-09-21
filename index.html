@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="SPRAXXX.TV — The Nation Live" />
   <meta name="twitter:description" content="Open mic, truth, and movement. New StarMaker cover inside." />
   <meta name="twitter:image" content="/og.jpg" />
+
   <style>
     :root{--bg:#000;--fg:#fff;--ink:#ff2a2a;--muted:#9a9a9a;--card:#0a0a0a;--edge:#151515;--r:12px}
     *{box-sizing:border-box}html,body{height:100%}
@@ -40,7 +41,7 @@
     @media (max-width:900px){.grid{grid-template-columns:1fr}}
     footer{text-align:center;padding:26px 12px;color:var(--muted);border-top:1px solid #111}
 
-    /* === NEW: Track of the Week + Banners === */
+    /* Track of the Week + Banners */
     .track-of-week{position:relative}
     .track-of-week .banner{background:#00ffc8;color:#000;font-weight:900;text-align:center;padding:.9rem 1rem}
     .track-of-week .banner.top{border-bottom:1px solid #008f79}
@@ -51,9 +52,14 @@
     .tw-stars{font-size:1.25rem;letter-spacing:2px}
     .tw-thumbs{font-size:1.25rem}
     .tw-title{font-weight:700}
-    /* Optional subtle glow to make banners pop without being cheesy */
     .banner{box-shadow:0 0 0 rgba(0,0,0,0);transition:box-shadow .25s ease}
     .track-of-week:hover .banner{box-shadow:0 0 22px rgba(0,255,200,.15)}
+
+    /* Signal Prayer style */
+    .signal-prayer{
+      margin:1.5rem auto;padding:1rem;font-size:14px;line-height:1.6;color:#ccc;
+      font-style:italic;max-width:700px
+    }
   </style>
 </head>
 <body>
@@ -70,7 +76,7 @@
 
   <main class="wrap">
 
-    <!-- ✅ NEW: Track of the Week (bannered, first position) -->
+    <!-- Track of the Week -->
     <section class="block track-of-week" id="track-of-week">
       <div class="banner top">🌟 Track of the Week — Two Thumbs Up! 🌟</div>
       <h2>🎶 “You Are The Reason” — Featured Cover</h2>
@@ -95,7 +101,7 @@
       <div class="banner bottom">SPRAXXX Nation approves — Track of the Week!</div>
     </section>
 
-    <!-- ✅ NEW: Community Music Short (share link) -->
+    <!-- Community Music Short -->
     <section class="block" id="community-short">
       <h2>🎱 Community Music Short — SPRAXXX Share</h2>
       <div class="inner">
@@ -107,7 +113,7 @@
       </div>
     </section>
 
-    <!-- (existing) StarMaker headliner -->
+    <!-- Existing sections you already had (kept intact) -->
     <section class="block" id="starmaker0">
       <h2>🌙 Now Playing: HEY THERE DELILAH (Female Key) — Maple</h2>
       <div class="inner">
@@ -126,7 +132,6 @@
       </div>
     </section>
 
-    <!-- (existing) Feature grid: StarMaker set -->
     <section class="block" id="set">
       <h2>🎙️ Featured Performances — Maple</h2>
       <div class="inner grid">
@@ -183,7 +188,6 @@
       </div>
     </section>
 
-    <!-- (existing) Internet Archive pick -->
     <section class="block" id="ia1">
       <h2>📼 Internet Archive Classic</h2>
       <div class="inner">
@@ -201,23 +205,19 @@
       </div>
     </section>
 
-    <!-- (existing) KingHorn + Grassroots Story -->
     <section class="block" id="kinghorn">
       <h2>👑 KingHorn & Gusta Gusta — Grassroots Rising</h2>
       <div class="inner">
-        <p>Shoutout to <strong>KingHorn</strong>, the man carrying the flame of SPRAXXX Nation.  
-        With his brother <strong>Gusta Gusta</strong> from North Augusta, they’re keeping it real, keeping it shining.  
-        Their family’s been known as the <em>cow patty boys of Flip Hollow</em> — hard work, dirty boots, real grassroots.  
+        <p>Shoutout to <strong>KingHorn</strong>, the man carrying the flame of SPRAXXX Nation.
+        With his brother <strong>Gusta Gusta</strong> from North Augusta, they’re keeping it real, keeping it shining.
+        Their family’s been known as the <em>cow patty boys of Flip Hollow</em> — hard work, dirty boots, real grassroots.
         Now, they’re bringing that same grit to SPRAXXX Nation with the official T-shirts. 👕🔥</p>
-        <p>Stay tuned: <strong>SPRAXXX T-Shirts launching soon</strong> — built from sweat, story, and solidarity.  
+        <p>Stay tuned: <strong>SPRAXXX T-Shirts launching soon</strong> — built from sweat, story, and solidarity.
         Because when KingHorn stitches, it’s not just fabric. It’s brotherhood.</p>
-        <div class="row">
-          <span class="muted">#KingHorn · #GustaGusta · #SPRAXXXNation</span>
-        </div>
+        <div class="row"><span class="muted">#KingHorn · #GustaGusta · #SPRAXXXNation</span></div>
       </div>
     </section>
 
-    <!-- (existing) Dignity Wall -->
     <section class="block" id="dignity-wall">
       <h2>🧱 The Dignity Wall</h2>
       <div class="inner">
@@ -231,36 +231,32 @@
 
   </main>
 
-<footer>
-  <!-- ✅ Signal Prayer -->
-  <p class="signal-prayer">
-    May these words ride the wires and waves, from backyard fires to satellites above.  
-    Peace, love, and unity — encoded in every light, streaming across the net, into hearts, into homes, into every open ear.  
-    If you find this signal, know you are not alone. We are one Nation, one brotherhood, one voice.  
-    Let gossip fall to ash, let truth grow green. From Glengarry to the globe, we trim away the dead, we breathe in the cedar, we lift up the song.  
-    So it is carried. So it is received. So it is done.
-  </p>
+  <footer>
+    <!-- Signal Prayer -->
+    <p class="signal-prayer">
+      May these words ride the wires and waves, from backyard fires to satellites above.
+      Peace, love, and unity — encoded in every light, streaming across the net, into hearts, into homes, into every open ear.
+      If you find this signal, know you are not alone. We are one Nation, one brotherhood, one voice.
+      Let gossip fall to ash, let truth grow green. From Glengarry to the globe, we trim away the dead, we breathe in the cedar, we lift up the song.
+      <strong>Mucho respect.</strong> So it is carried. So it is received. So it is done.
+    </p>
 
-  <p>🌐 Explore the Nation:
-    <a href="https://spraxxx.com" target="_blank" rel="noopener">spraxxx.com</a> ·
-    <a href="https://spraxxx.ai" target="_blank" rel="noopener">spraxxx.ai</a> ·
-    <a href="https://spraxxx.tv" target="_blank" rel="noopener">spraxxx.tv</a> ·
-    <a href="https://spraxxx.net" target="_blank" rel="noopener">spraxxx.net</a>
-  </p>
-  <p class="muted">© <span id="y"></span> SPRAXXX Nation — Brotherhood in Motion</p>
-</footer>
+    <!-- Optional audio signal (uncomment when you upload /audio/signal-prayer.mp3) -->
+    <!--
+    <audio controls>
+      <source src="/audio/signal-prayer.mp3" type="audio/mpeg">
+    </audio>
+    -->
 
-<style>
-  .signal-prayer {
-    margin: 1.5rem auto;
-    padding: 1rem;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #ccc;
-    font-style: italic;
-    max-width: 700px;
-  }
-</style>
+    <p>🌐 Explore the Nation:
+      <a href="https://spraxxx.com" target="_blank" rel="noopener">spraxxx.com</a> ·
+      <a href="https://spraxxx.ai" target="_blank" rel="noopener">spraxxx.ai</a> ·
+      <a href="https://spraxxx.tv" target="_blank" rel="noopener">spraxxx.tv</a> ·
+      <a href="https://spraxxx.net" target="_blank" rel="noopener">spraxxx.net</a> ·
+      <a href="https://www.cloudflare.com" target="_blank" rel="noopener">cloudflare.com</a>
+    </p>
+    <p class="muted">© <span id="y"></span> SPRAXXX Nation — Brotherhood in Motion</p>
+  </footer>
 
   <script>
     document.getElementById('y').textContent=new Date().getFullYear();
