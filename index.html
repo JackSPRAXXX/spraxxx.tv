@@ -56,10 +56,13 @@
     .track-of-week:hover .banner{box-shadow:0 0 22px rgba(0,255,200,.15)}
 
     /* Signal Prayer style */
-    .signal-prayer{
-      margin:1.5rem auto;padding:1rem;font-size:14px;line-height:1.6;color:#ccc;
-      font-style:italic;max-width:700px
-    }
+    .signal-prayer{margin:1.5rem auto;padding:1rem;font-size:14px;line-height:1.6;color:#ccc;font-style:italic;max-width:700px}
+
+    /* Shoutouts */
+    .shout-card{background:#0e0e0e;border:1px solid var(--edge);border-radius:var(--r);padding:16px}
+    .shout-title{font-weight:800;font-size:18px;margin:0 0 8px}
+    .tag{display:inline-block;margin:.25rem .25rem 0 0;font-size:12px;border:1px solid var(--edge);padding:4px 8px;border-radius:999px;color:#ddd}
+    .saying{font-style:italic;color:#e6e6e6;margin-top:6px}
   </style>
 </head>
 <body>
@@ -113,7 +116,7 @@
       </div>
     </section>
 
-    <!-- Existing sections you already had (kept intact) -->
+    <!-- StarMaker headliner -->
     <section class="block" id="starmaker0">
       <h2>🌙 Now Playing: HEY THERE DELILAH (Female Key) — Maple</h2>
       <div class="inner">
@@ -132,6 +135,7 @@
       </div>
     </section>
 
+    <!-- Featured performances -->
     <section class="block" id="set">
       <h2>🎙️ Featured Performances — Maple</h2>
       <div class="inner grid">
@@ -188,36 +192,29 @@
       </div>
     </section>
 
-    <section class="block" id="ia1">
-      <h2>📼 Internet Archive Classic</h2>
-      <div class="inner">
-        <div class="player">
-          <iframe
-            src="https://archive.org/embed/night_of_the_living_dead"
-            title="Night of the Living Dead (1968, Public Domain)" loading="lazy" allowfullscreen
-          ></iframe>
+    <!-- 🔁 REPLACED KingHorn section with Shoutouts -->
+    <section class="block" id="shoutouts">
+      <h2>📣 Shoutouts — Community Fanfare</h2>
+      <div class="inner grid">
+        <div class="shout-card">
+          <p class="shout-title">Fournier — Certified Solid</p>
+          <p class="muted">Mark “Fournier” — respected, big-hearted, a real one in the community.</p>
+          <p class="saying">“Get to crack, eight days a week.”</p>
+          <div class="row">
+            <span class="tag">#Respect</span><span class="tag">#Homie</span><span class="tag">#GetToCrack</span>
+          </div>
         </div>
-        <div class="row">
-          <a class="btn filled" href="https://archive.org/details/night_of_the_living_dead" target="_blank" rel="noopener">View on Internet Archive</a>
-          <a class="btn" href="https://archive.org/donate/" target="_blank" rel="noopener">❤️ Support IA</a>
+        <div class="shout-card">
+          <p class="shout-title">Katie — Right Beside Him</p>
+          <p class="muted">Steady energy, good vibes, day-one support. We see you, Katie.</p>
+          <div class="row">
+            <span class="tag">#Community</span><span class="tag">#DayOnes</span><span class="tag">#SPRAXXXNation</span>
+          </div>
         </div>
-        <p class="muted">Streaming via the Internet Archive. Public domain.</p>
       </div>
     </section>
 
-    <section class="block" id="kinghorn">
-      <h2>👑 KingHorn & Gusta Gusta — Grassroots Rising</h2>
-      <div class="inner">
-        <p>Shoutout to <strong>KingHorn</strong>, the man carrying the flame of SPRAXXX Nation.
-        With his brother <strong>Gusta Gusta</strong> from North Augusta, they’re keeping it real, keeping it shining.
-        Their family’s been known as the <em>cow patty boys of Flip Hollow</em> — hard work, dirty boots, real grassroots.
-        Now, they’re bringing that same grit to SPRAXXX Nation with the official T-shirts. 👕🔥</p>
-        <p>Stay tuned: <strong>SPRAXXX T-Shirts launching soon</strong> — built from sweat, story, and solidarity.
-        Because when KingHorn stitches, it’s not just fabric. It’s brotherhood.</p>
-        <div class="row"><span class="muted">#KingHorn · #GustaGusta · #SPRAXXXNation</span></div>
-      </div>
-    </section>
-
+    <!-- Dignity Wall -->
     <section class="block" id="dignity-wall">
       <h2>🧱 The Dignity Wall</h2>
       <div class="inner">
@@ -241,7 +238,7 @@
       <strong>Mucho respect.</strong> So it is carried. So it is received. So it is done.
     </p>
 
-    <!-- Optional audio signal (uncomment when you upload /audio/signal-prayer.mp3) -->
+    <!-- Optional audio signal (uncomment when ready) -->
     <!--
     <audio controls>
       <source src="/audio/signal-prayer.mp3" type="audio/mpeg">
