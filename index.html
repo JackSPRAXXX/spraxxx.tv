@@ -39,6 +39,21 @@
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     @media (max-width:900px){.grid{grid-template-columns:1fr}}
     footer{text-align:center;padding:26px 12px;color:var(--muted);border-top:1px solid #111}
+
+    /* === NEW: Track of the Week + Banners === */
+    .track-of-week{position:relative}
+    .track-of-week .banner{background:#00ffc8;color:#000;font-weight:900;text-align:center;padding:.9rem 1rem}
+    .track-of-week .banner.top{border-bottom:1px solid #008f79}
+    .track-of-week .banner.bottom{border-top:1px solid #008f79}
+    .track-of-week .emojis{display:flex;justify-content:center;gap:18px;margin:.6rem 0 0}
+    .chip{display:inline-block;background:#111;border:1px solid var(--edge);border-radius:999px;padding:6px 10px;font-size:13px;color:#ddd}
+    .tw-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+    .tw-stars{font-size:1.25rem;letter-spacing:2px}
+    .tw-thumbs{font-size:1.25rem}
+    .tw-title{font-weight:700}
+    /* Optional subtle glow to make banners pop without being cheesy */
+    .banner{box-shadow:0 0 0 rgba(0,0,0,0);transition:box-shadow .25s ease}
+    .track-of-week:hover .banner{box-shadow:0 0 22px rgba(0,255,200,.15)}
   </style>
 </head>
 <body>
@@ -55,7 +70,44 @@
 
   <main class="wrap">
 
-    <!-- NEW: StarMaker headliner -->
+    <!-- ✅ NEW: Track of the Week (bannered, first position) -->
+    <section class="block track-of-week" id="track-of-week">
+      <div class="banner top">🌟 Track of the Week — Two Thumbs Up! 🌟</div>
+      <h2>🎶 “You Are The Reason” — Featured Cover</h2>
+      <div class="inner">
+        <div class="player">
+          <iframe
+            src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=6755399498497533&share_type=copylink"
+            title="Track of the Week — You Are The Reason (Cover) on StarMaker"
+            loading="lazy" allowfullscreen referrerpolicy="no-referrer"
+          ></iframe>
+        </div>
+        <div class="tw-meta">
+          <span class="tw-title chip">SPRAX TV Chat Pick</span>
+          <span class="tw-stars chip">⭐️⭐️⭐️⭐️⭐️</span>
+          <span class="tw-thumbs chip">👍👍</span>
+          <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=6755399498497533&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
+          <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Track%20of%20the%20Week%20Feedback">Send Feedback 💌</a>
+        </div>
+        <p class="muted">Featured in first position this week on SPRAXXX.TV. If the player doesn’t load, tap <em>Open in StarMaker</em>.</p>
+        <div class="emojis">🎧 🙌 🌿</div>
+      </div>
+      <div class="banner bottom">SPRAXXX Nation approves — Track of the Week!</div>
+    </section>
+
+    <!-- ✅ NEW: Community Music Short (share link) -->
+    <section class="block" id="community-short">
+      <h2>🎱 Community Music Short — SPRAXXX Share</h2>
+      <div class="inner">
+        <p class="muted">SPRAXXX🎱 shared an extraordinary music short on StarMaker — send love and support!</p>
+        <div class="row">
+          <a class="btn filled" href="https://m.starmakerstudios.com/v/share?app_name=sm&from_sid=100038698755&language=en-CA&pg_rf_ca_vn=542&sm_id=5687580725&share_type=copylink" target="_blank" rel="noopener">Open Music Short</a>
+          <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Feature%20my%20Music%20Short">Feature My Short</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- (existing) StarMaker headliner -->
     <section class="block" id="starmaker0">
       <h2>🌙 Now Playing: HEY THERE DELILAH (Female Key) — Maple</h2>
       <div class="inner">
@@ -74,7 +126,7 @@
       </div>
     </section>
 
-    <!-- Feature grid: StarMaker set -->
+    <!-- (existing) Feature grid: StarMaker set -->
     <section class="block" id="set">
       <h2>🎙️ Featured Performances — Maple</h2>
       <div class="inner grid">
@@ -131,7 +183,7 @@
       </div>
     </section>
 
-    <!-- Internet Archive pick -->
+    <!-- (existing) Internet Archive pick -->
     <section class="block" id="ia1">
       <h2>📼 Internet Archive Classic</h2>
       <div class="inner">
@@ -149,7 +201,7 @@
       </div>
     </section>
 
-    <!-- KingHorn + Grassroots Story -->
+    <!-- (existing) KingHorn + Grassroots Story -->
     <section class="block" id="kinghorn">
       <h2>👑 KingHorn & Gusta Gusta — Grassroots Rising</h2>
       <div class="inner">
@@ -165,7 +217,7 @@
       </div>
     </section>
 
-    <!-- Dignity Wall -->
+    <!-- (existing) Dignity Wall -->
     <section class="block" id="dignity-wall">
       <h2>🧱 The Dignity Wall</h2>
       <div class="inner">
