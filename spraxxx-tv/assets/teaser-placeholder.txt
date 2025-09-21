@@ -1,0 +1,1 @@
+Replace this file with your real teaser MP4. Name it assets/teaser.mp4. The HTML references assets/teaser.mp4 and assets/teaser-poster.jpg (poster is included as a tiny placeholder). Remove this .txt when you add your MP4.

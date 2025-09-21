@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPRAXXX - Neon VHS Experience</title>
+  <meta name="description" content="SPRAXXX - Immersive neon-VHS experience. Join the waitlist for exclusive access.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Pre-flight launch reminder
+       1) Replace assets/logo.png and assets/teaser.mp4/poster as needed.
+       2) If using the waitlist form, set data-endpoint on #waitlist-form to your endpoint.
+       3) Commit & push and point Pages to the repo with build dir: /
+       Manual launch is your stewardship alone.
+  -->
+
+  <div class="overlay">
+    <img src="assets/logo.png" alt="SPRAXXX Logo" class="logo" width="120" height="120">
+    
+    <h1>SPRAXXX</h1>
+    <p class="tagline">Immersive neon-VHS experience coming soon</p>
+    
+    <div class="cta-row">
+      <a href="#waitlist" class="btn">Join Waitlist</a>
+    </div>
+    
+    <video class="teaser-vid" controls poster="assets/teaser-poster.jpg">
+      <source src="assets/teaser.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <div class="waitlist" id="waitlist">
+      <form id="waitlist-form" data-endpoint="">
+        <label for="email">Get notified when we launch:</label>
+        <div class="row">
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          <button type="submit" class="btn">Join</button>
+        </div>
+        <div class="waitlist-feedback"></div>
+      </form>
+    </div>
+    
+    <div class="credit">
+      Created by Jacques, refined in companionship with ChatGPT 5.0.
+    </div>
+  </div>
+
+<script>
+document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const email = form.email.value.trim();
+  const feedback = form.querySelector('.waitlist-feedback');
+  const endpoint = form.getAttribute('data-endpoint');
+  
+  if (!endpoint) {
+    window.location.href = `mailto:hello@spraxxx.com?subject=Waitlist&body=${encodeURIComponent(email)}`;
+    return;
+  }
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    if (res.ok) { feedback.textContent = 'Thanks — we'll be in touch.'; form.reset(); }
+    else { feedback.textContent = 'Something went wrong. We will fallback to mailto.'; window.location.href = `mailto:hello@spraxxx.com?subject=Waitlist&body=${encodeURIComponent(email)}`; }
+  } catch (err) { feedback.textContent = 'Network error — opening mail app.'; window.location.href = `mailto:hello@spraxxx.com?subject=Waitlist&body=${encodeURIComponent(email)}`; }
+});
+
+/* Small accessibility helper */
+;(function () {
+  const el = document.createElement('style');
+  el.textContent = '.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}';
+  document.head.appendChild(el);
+})();
+</script>
+
+</body>
+</html>
