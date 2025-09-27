@@ -4,175 +4,508 @@
   <meta charset="utf-8" />
   <title>SPRAXXX.TV | The Nation Live</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SPRAXXX — brotherhood on the air: testimony, stewardship, and cosmic community. Listen, speak, build the Nation." />
+  <meta name="description" content="SPRAXXX — brotherhood on the air: open mic, truth, and movement. Listen, speak, build the Nation." />
   <meta name="theme-color" content="#000000" />
+
+  <!-- Open Graph -->
   <meta property="og:title" content="SPRAXXX.TV — The Nation Live" />
-  <meta property="og:description" content="Brotherhood on the air: open mic, truth, and movement. StarMaker & YouTube features inside." />
+  <meta property="og:description" content="Brotherhood on the air: open mic, truth, and movement. New StarMaker cover inside." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/og.jpg" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="SPRAXXX.TV — The Nation Live" />
-  <meta name="twitter:description" content="Open mic, truth, and movement. StarMaker & YouTube features inside." />
+  <meta name="twitter:description" content="Open mic, truth, and movement. New StarMaker cover inside." />
   <meta name="twitter:image" content="/og.jpg" />
-  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="/assets/manifest.json">
+
   <style>
-    :root {
+    :root{
       --bg:#000;--fg:#fff;--ink:#00ffc8;--ink2:#ff2a2a;--muted:#9a9a9a;--card:#0a0a0a;--edge:#151515;--r:12px;
-      --accent:#f0c;--banner:#333;--button-radius:4px;--shadow:0 0 10px #f0c;
       --teal:#00ffc8;--cedar:#1b1b1b;--glow:0 0 22px rgba(0,255,200,.15)
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.5;}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg)}
     a{color:var(--ink);text-decoration:none}
     .wrap{max-width:1080px;margin:0 auto;padding:18px 16px 80px}
-    header, footer {background:var(--card);padding:1rem;text-align:center;}
-    .banner{background:var(--banner);padding:2rem;text-align:center;}
-    .banner h1, .banner h2{font-size:2rem;color:var(--accent);}
-    .cta-btn{background:var(--accent);color:var(--bg);padding:.6rem 1.2rem;margin:.3rem;border:none;cursor:pointer;border-radius:var(--button-radius);font-weight:bold;transition:background .2s;}
-    .cta-btn:hover{background:#fff;color:var(--accent);}
-    h2{margin-top:0;font-size:1.3rem;color:var(--accent);}
-    section{margin-bottom:2rem;}
-    .tracks, .headliners, .feature-of-week{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem;margin-top:1.2rem;}
-    .track-card{background:var(--card);padding:1rem;border-radius:8px;box-shadow:var(--shadow);transition:transform .3s;display:flex;flex-direction:column;gap:.5rem;}
-    .track-card:hover{transform:scale(1.04);}
-    iframe{width:100%;height:300px;border:none;border-radius:4px;background:#000;}
-    .marquee{display:flex;gap:1rem;overflow-x:auto;padding-bottom:1rem;scrollbar-width:thin;scrollbar-color:var(--accent) var(--banner);}
-    .events-list{margin-top:1rem;display:flex;flex-direction:column;gap:.6rem;}
-    .muted{color:var(--muted);font-size:.95rem;}
-    .block{margin:28px 0;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);overflow:hidden;}
-    .inner{padding:14px;}
-    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
-    .pricing{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
-    .plan{background:#0d0d0d;border:1px solid var(--edge);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px;}
-    .plan h3{margin:0;font-size:18px;}
-    .price{font-size:28px;font-weight:900;}
-    .plan ul{margin:0 0 10px 18px;padding:0;}
-    .plan li{margin:6px 0;}
+    header{padding:28px 16px 10px;text-align:center;border-bottom:1px solid #111;position:relative;overflow:hidden}
+    header:before{
+      content:"";position:absolute;inset:-40% -40% auto -40%;
+      height:240px;background:radial-gradient(ellipse at center, rgba(0,255,200,.08), transparent 60%);
+      filter:blur(12px);pointer-events:none
+    }
+    header h1{margin:0;font-size:clamp(30px,4.2vw,44px);letter-spacing:.5px}
+    header p{margin:6px 0 0;color:var(--muted)}
+    .domains{margin-top:10px;font-size:14px}
+    .domains a{color:#fff;opacity:.95;border:1px solid var(--edge);padding:6px 10px;border-radius:999px;display:inline-block;margin:4px 4px 0}
+    main h2{margin:0;padding:14px 16px;font-size:18px;background:#0f0f0f;border-bottom:1px solid var(--edge)}
+    .block{margin:28px 0;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);overflow:hidden}
+    .inner{padding:14px}
+    .player{position:relative;aspect-ratio:16/9;width:100%;background:#000;border-radius:10px;overflow:hidden}
+    iframe{width:100%;height:100%;border:0}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-block;padding:10px 14px;font-weight:700;border:1px solid var(--ink);border-radius:10px}
+    .btn.filled{background:var(--ink);color:#000}
+    .btn.alt{border-color:var(--ink2);color:#fff}
+    .muted{color:var(--muted);font-size:14px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    footer{text-align:center;padding:26px 12px;color:var(--muted);border-top:1px solid #111}
+
+    /* Track of the Week + Banners */
+    .track-of-week{position:relative}
+    .track-of-week .banner{background:var(--ink);color:#000;font-weight:900;text-align:center;padding:.9rem 1rem}
+    .track-of-week .banner.top{border-bottom:1px solid #008f79}
+    .track-of-week .banner.bottom{border-top:1px solid #008f79}
+    .track-of-week .emojis{display:flex;justify-content:center;gap:18px;margin:.6rem 0 0}
+    .chip{display:inline-block;background:#111;border:1px solid var(--edge);border-radius:999px;padding:6px 10px;font-size:13px;color:#ddd}
+    .tw-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+    .tw-stars{font-size:1.25rem;letter-spacing:2px}
+    .tw-thumbs{font-size:1.25rem}
+    .tw-title{font-weight:700}
+    .banner{box-shadow:0 0 0 rgba(0,0,0,0);transition:box-shadow .25s ease}
+    .track-of-the-week:hover .banner{box-shadow:var(--glow)}
+
+    /* Signal Prayer style */
+    .signal-prayer{margin:1.5rem auto;padding:1rem;font-size:14px;line-height:1.6;color:#ccc;font-style:italic;max-width:700px}
+
+    /* Shoutouts */
+    .shout-card{background:#0e0e0e;border:1px solid var(--edge);border-radius:var(--r);padding:16px}
+    .shout-title{font-weight:800;font-size:18px;margin:0 0 8px}
+    .tag{display:inline-block;margin:.25rem .25rem 0 0;font-size:12px;border:1px solid var(--edge);padding:4px 8px;border-radius:999px;color:#ddd}
+    .saying{font-style:italic;color:#e6e6e6;margin-top:6px}
+
+    /* Bye Phonetics banner */
+    .phonetics{margin:28px 0;border:1px solid var(--edge);border-radius:var(--r);overflow:hidden;background:#0b0b0b}
+    .phonetics .inner{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
+    .phonetics h3{margin:6px 0 0;font-size:clamp(22px,3vw,28px);letter-spacing:.6px}
+    .phonetics p{margin:0;color:#ddd}
+    .stamp{font-weight:900;text-transform:uppercase;letter-spacing:1px;border:2px dashed var(--ink2);padding:6px 12px;border-radius:8px;color:#fff}
+
+    /* Theaters / Nation Lighting */
+    .lighting{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .lighting .tile{background:linear-gradient(145deg, #0c0c0c, #090909);border:1px solid var(--edge);border-radius:var(--r);padding:14px;position:relative;overflow:hidden}
+    .lighting .tile:before{content:"";position:absolute;inset:auto -40% -40% -40%;height:160px;background:radial-gradient(ellipse at center, rgba(0,255,200,.08), transparent 60%);filter:blur(10px)}
+    .lighting h4{margin:0 0 6px}
+    .mini{font-size:13px;color:#bbb}
+
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+    .plan{background:#0d0d0d;border:1px solid var(--edge);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
+    .plan h3{margin:0;font-size:18px}
+    .price{font-size:28px;font-weight:900}
+    .plan ul{margin:0 0 10px 18px;padding:0}
+    .plan li{margin:6px 0}
     @media (max-width:900px){.pricing{grid-template-columns:1fr}}
-    @media (max-width:700px){.tracks, .headliners, .feature-of-week{grid-template-columns:1fr;}iframe{height:200px;}.wrap{padding:1rem .2rem;}}
-    .governance-chain,.covenant-block{margin:.5rem 0;padding:1rem;background:var(--banner);border-radius:var(--r);}
-    .governance-chain h2, .covenant-block h2{font-size:1.2rem;color:var(--accent);}
-    .repo-files ul{margin:0 0 .2rem 1.2rem;}
-    .repo-files li{margin-bottom:.3rem;}
-    .signal-prayer{margin:1.5rem auto;padding:1rem;font-size:14px;line-height:1.6;color:#ccc;font-style:italic;max-width:700px;}
+
+    /* QR + Events */
+    .qr-card{display:grid;grid-template-columns:140px 1fr;gap:14px;align-items:center}
+    .qr{width:140px;height:140px;border-radius:8px;background:conic-gradient(from 180deg, #0b0b0b, #0f0f0f);display:flex;align-items:center;justify-content:center;border:1px dashed var(--edge);color:#777}
+    @media (max-width:700px){.qr-card{grid-template-columns:1fr}.qr{margin:0 auto}}
+
+    /* Toast/Note */
+    .note{background:#0b0b0b;border:1px solid var(--edge);border-radius:10px;padding:10px;color:#ccc;font-size:13px}
+
+    /* NEW: Exclusive ad slot */
+    .ad-exclusive {
+      background: linear-gradient(90deg,#030303,#070707);
+      color:#fff;
+      border:2px solid rgba(255,42,42,0.06);
+      padding:14px;
+      text-align:center;
+      font-weight:800;
+      letter-spacing:.6px;
+      border-radius:10px;
+      margin:12px 0;
+    }
+    .ad-exclusive .big {font-size:16px}
+    .ad-exclusive .small {color:var(--muted);font-weight:400;font-size:12px;margin-top:6px}
+
+    /* NEW: Discoveries */
+    .discoveries .item{display:flex;gap:12px;align-items:flex-start;border-top:1px dashed rgba(255,255,255,0.03);padding:12px 0}
+    .discoveries .thumb{width:86px;height:60px;background:#070707;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#777;font-size:12px}
+    .discoveries .meta{flex:1}
+    .events-list{display:flex;flex-direction:column;gap:10px}
+    .event{background:#070707;border:1px solid var(--edge);padding:10px;border-radius:8px}
+    .about-center{background:linear-gradient(180deg, rgba(0,255,200,0.02), transparent);border:1px solid rgba(0,255,200,0.04);padding:16px;border-radius:12px;text-align:center}
   </style>
 </head>
 <body>
   <header>
-    <h1>SPRAXXX.TV</h1>
-    <p>Brotherhood on the Air — Open Mic, Truth, Movement</p>
-    <nav aria-label="SPRAXXX domains" style="margin-top:.7rem;">
-      <a href="https://spraxxx.com" target="_blank" rel="noopener">spraxxx.com</a> ·
-      <a href="https://spraxxx.ai" target="_blank" rel="noopener">spraxxx.ai</a> ·
-      <a href="https://spraxxx.tv" target="_blank" rel="noopener">spraxxx.tv</a> ·
+    <h1>SPRAXXX.TV 🔥</h1>
+    <p>Brotherhood on the air — open mic, truth, and movement.</p>
+    <nav class="domains" aria-label="SPRAXXX domains">
+      <a href="https://spraxxx.com" target="_blank" rel="noopener">spraxxx.com</a>
+      <a href="https://spraxxx.ai" target="_blank" rel="noopener">spraxxx.ai</a>
+      <a href="https://spraxxx.tv" target="_blank" rel="noopener">spraxxx.tv</a>
       <a href="https://spraxxx.net" target="_blank" rel="noopener">spraxxx.net</a>
     </nav>
   </header>
 
-  <div class="banner">
-    <h1>Bye Phonetics — Welcome to The Nation</h1>
-    <p class="muted">All voices welcome under the cosmic cedar. Join the movement, build the Nation, steward the song.</p>
-    <button class="cta-btn" aria-label="Upload Your Track">Upload Your Track</button>
-    <button class="cta-btn" aria-label="Join the Halls">Join the Halls</button>
-  </div>
-
   <main class="wrap">
 
-    <section class="block governance-chain" id="governance">
-      <h2>🌲 SPRAXXX Governance Chain</h2>
-      <p class="muted">
-        Steward: Jacques · Successor: [Vacant] · Executor: [Vacant] · Overseer: [Vacant]<br>
-        Every role is an invitation. If you feel the call,
-        <a href="mailto:team@spraxxx.tv?subject=Governance%20Invitation">reach out</a>.
-      </p>
-    </section>
+    <!-- NEW: Exclusive fake ad banner -->
+    <div class="ad-exclusive" aria-hidden="true">
+      <div class="big">🚫 ADVERTISING UNAVAILABLE — THIS SPACE IS RESERVED</div>
+      <div class="small">Estimated future value: <strong>$250,000/month</strong>. We don't sell out. Earn the mic.</div>
+    </div>
 
-    <section class="block covenant-block" id="covenant">
-      <h2>🪶 Our Covenant</h2>
-      <p class="muted">
-        SPRAXXX is built on fellowship, testimony, and cosmic companionship.<br>
-        We honor all voices, steward truth, and uplift community above all.<br>
-        This space is sacred, held in covenant and discipline.
-      </p>
-    </section>
-
-    <!-- Feature of the Week -->
-    <section>
-      <h2>🎵 Feature of the Week</h2>
-      <div class="feature-of-week">
-        <div class="track-card">
-          <h3>Unfaithful - Rihanna (Tribute)</h3>
-          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349468116495&share_type=copylink" title="Track: Unfaithful - Rihanna" loading="lazy"></iframe>
-          <a class="cta-btn" href="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349468116495&share_type=copylink" target="_blank" rel="noopener">Listen on StarMaker</a>
+    <!-- Bye Phonetics Banner -->
+    <section class="block phonetics" id="bye-phonetics">
+      <div class="inner">
+        <span class="stamp">Nation Shout</span>
+        <h3>BYE, PHONETICS. HELLO, BROTHERHOOD.</h3>
+        <p>No phoniness. No phonetics. Just raw SPRAXXX.</p>
+        <div class="row">
+          <a class="btn filled" href="#theaters">Find a Hall</a>
+          <a class="btn alt" href="#verification">Get Verified</a>
+          <a class="btn" href="https://upload.spraxxx.tv" target="_blank" rel="noopener">Upload Your Video</a>
         </div>
       </div>
     </section>
 
-    <!-- StarMaker Discoveries Marquee -->
-    <section>
-      <h2>🌌 StarMaker Discoveries</h2>
-      <div class="marquee">
-        <div class="track-card">
-          <h3>Hopelessly Devoted to You</h3>
-          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=10414574242775772&share_type=copylink" title="Track: Hopelessly Devoted to You" loading="lazy"></iframe>
+    <!-- Track of the Week -->
+    <section class="block track-of-week" id="track-of-week">
+      <div class="banner top">🌟 Track of the Week — Two Thumbs Up! 🌟</div>
+      <h2>🎶 “You Are The Reason” — Featured Cover</h2>
+      <div class="inner">
+        <div class="player">
+          <iframe
+            src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=6755399498497533&share_type=copylink"
+            title="Track of the Week — You Are The Reason (Cover) on StarMaker"
+            loading="lazy" allowfullscreen referrerpolicy="no-referrer"
+          ></iframe>
         </div>
-        <div class="track-card">
-          <h3>Another Brick In The Wall</h3>
-          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349465997960&share_type=copylink" title="Track: Another Brick In The Wall" loading="lazy"></iframe>
+        <div class="tw-meta">
+          <span class="tw-title chip">SPRAX TV Chat Pick</span>
+          <span class="tw-stars chip">⭐️⭐️⭐️⭐️⭐️</span>
+          <span class="tw-thumbs chip">👍👍</span>
+          <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=6755399498497533&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
+          <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Track%20of%20the%20Week%20Feedback">Send Feedback 💌</a>
+        </div>
+        <p class="muted">Featured in first position this week on SPRAXXX.TV. If the player doesn’t load, tap <em>Open in StarMaker</em>.</p>
+        <div class="emojis">🎧 🙌 🌿</div>
+      </div>
+      <div class="banner bottom">SPRAXXX Nation approves — Track of the Week!</div>
+    </section>
+
+    <!-- NEW: ABOUT — Strong center piece -->
+    <section class="block" id="about">
+      <div class="inner about-center">
+        <h2>WHO WE ARE · WHERE WE ARE · WHERE WE'RE GOING</h2>
+        <p class="muted">SPRAXXX.TV is the Nation — a place for unfiltered voices, for testimony, and for the raw art that mainstream silences. We build identity (3X), community halls, secure inboxes, and a media home where creators are elevated, not erased.</p>
+        <p class="muted">Right now: building upload tools, identity keys, and a living Dignity Wall. Next: global creator invites, exclusive community sponsorships, and streamed OpenMicTestimonyNights across the Nation.</p>
+        <div class="row">
+          <a class="btn filled" href="#pricing">See Upgrades & Features</a>
+          <a class="btn alt" href="#theaters">Join a Hall</a>
         </div>
       </div>
     </section>
 
-    <!-- Pricing Plans -->
+    <!-- Community Music Short -->
+    <section class="block" id="community-short">
+      <h2>🎱 Community Music Short — SPRAXXX Share</h2>
+      <div class="inner">
+        <p class="muted">SPRAXXX🎱 shared an extraordinary music short on StarMaker — send love and support!</p>
+        <div class="row">
+          <a class="btn filled" href="https://m.starmakerstudios.com/v/share?app_name=sm&from_sid=100038698755&language=en-CA&pg_rf_ca_vn=542&sm_id=5687580725&share_type=copylink" target="_blank" rel="noopener">Open Music Short</a>
+          <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Feature%20my%20Music%20Short">Feature My Short</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Discoveries (StarMaker finds) -->
+    <section class="block discoveries" id="discoveries">
+      <h2>🔎 Discoveries — Hidden Gems We Found</h2>
+      <div class="inner">
+        <p class="muted">We scout. We highlight. If you find a voice like this, we feature it. Sharing the best covers we found on StarMaker.</p>
+
+        <div class="item">
+          <div class="thumb">🎤</div>
+          <div class="meta">
+            <strong>The Time Of My Life — Cover</strong>
+            <div class="muted">A stunning cover we had to share. Tap to open in StarMaker.</div>
+            <div class="row" style="margin-top:8px">
+              <a class="btn filled" href="https://starmaker.onelink.me/v4ei/dkp5afjs" target="_blank" rel="noopener">Open — The Time Of My Life</a>
+              <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Found%20a%20Discovery">Nominate a discovery</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="thumb">🎤</div>
+          <div class="meta">
+            <strong>Please Forgive Me — Cover</strong>
+            <div class="muted">Raw emotion and pitch-perfect phrasing. Check it.</div>
+            <div class="row" style="margin-top:8px">
+              <a class="btn filled" href="https://starmaker.onelink.me/v4ei/c8sk3zpd" target="_blank" rel="noopener">Open — Please Forgive Me</a>
+              <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Found%20a%20Discovery">Nominate</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="thumb">🎤</div>
+          <div class="meta">
+            <strong>Heaven Is A Place On Earth — Cover</strong>
+            <div class="muted">A bright, nostalgic take we had to share with the Nation.</div>
+            <div class="row" style="margin-top:8px">
+              <a class="btn filled" href="https://starmaker.onelink.me/v4ei/hmtfns9r" target="_blank" rel="noopener">Open — Heaven Is A Place On Earth</a>
+              <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Found%20a%20Discovery">Nominate</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- StarMaker headliner -->
+    <section class="block" id="starmaker0">
+      <h2>🌙 Now Playing: HEY THERE DELILAH (Female Key) — Maple</h2>
+      <div class="inner">
+        <div class="player">
+          <iframe
+            src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349468876074&share_type=copylink"
+            title="Hey There Delilah — Maple (female key) on StarMaker"
+            loading="lazy" allowfullscreen referrerpolicy="no-referrer"
+          ></iframe>
+        </div>
+        <div class="row">
+          <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349468876074&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
+          <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Feedback%20on%20Delilah%20cover">Send Feedback 💌</a>
+        </div>
+        <p class="muted">Tip: If the inline player doesn’t load, tap “Open in StarMaker.”</p>
+      </div>
+    </section>
+
+    <!-- Featured performances -->
+    <section class="block" id="set">
+      <h2>🎙️ Featured Performances — Maple</h2>
+      <div class="inner grid">
+        <div>
+          <div class="player">
+            <iframe
+              src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349473114083&share_type=copylink"
+              title="LAST KISS (Acoustic) — Maple" loading="lazy" allowfullscreen referrerpolicy="no-referrer"
+            ></iframe>
+          </div>
+          <div class="row">
+            <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349473114083&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
+            <span class="muted">LAST KISS (Acoustic)</span>
+          </div>
+        </div>
+        <div>
+          <div class="player">
+            <iframe
+              src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=7318349465997960&app=sm&from_user_id=7318349403180363&pg_rf_ca_vn=20&share_type=copylink"
+              title="ANOTHER BRICK IN THE WALL — Maple" loading="lazy" allowfullscreen referrerpolicy="no-referrer"
+            ></iframe>
+          </div>
+          <div class="row">
+            <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=7318349465997960&app=sm&from_user_id=7318349403180363&pg_rf_ca_vn=20&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
+            <span class="muted">ANOTHER BRICK IN THE WALL</span>
+          </div>
+        </div>
+        <div>
+          <div class="player">
+            <iframe
+              src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=10414574254312633&app=sm&from_sid=100038698755&pg_rf_ca_vn=20&share_type=copylink"
+              title="EVERYTHING I DO — Maple" loading="lazy" allowfullscreen referrerpolicy="no-referrer"
+            ></iframe>
+          </div>
+          <div class="row">
+            <a class="btn filled" href="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=10414574254312633&app=sm&from_sid=100038698755&pg_rf_ca_vn=20&share_type=copylink" target="_blank" rel="noopener">Open in StarMaker</a>
+            <span class="muted">EVERYTHING I DO</span>
+          </div>
+        </div>
+        <div>
+          <div class="player">
+            <iframe
+              src="https://www.youtube.com/embed/t4axzmYKbNs"
+              title="Sharing My Thoughts / Dream Some Hard Times — SPRAXXX" loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="row">
+            <a class="btn filled" href="https://youtu.be/t4axzmYKbNs" target="_blank" rel="noopener">Watch on YouTube</a>
+            <a class="btn" href="mailto:submissions@spraxxx.tv">Submit Your Track</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Theaters of Canada + Nation Lighting -->
+    <section class="block" id="theaters">
+      <h2>🎭 The SPRAXXX Theaters of Canada — Temple + Transmitter</h2>
+      <div class="inner lighting">
+        <div class="tile">
+          <h4>Glengarry Flagship</h4>
+          <p class="mini">Cedar wall with member names, simple stage, BBQ outside, livestream to the Nation.</p>
+          <div class="row">
+            <a class="btn filled" href="#openmic">Plan the Launch Night</a>
+            <a class="btn" href="mailto:halls@spraxxx.tv?subject=Glengarry%20Flagship%20Volunteer">Volunteer</a>
+          </div>
+        </div>
+        <div class="tile">
+          <h4>Next Nodes</h4>
+          <p class="mini">Ottawa • Montreal • Toronto • Halifax • Winnipeg. Same blueprint, local flavor.</p>
+          <div class="row">
+            <a class="btn" href="mailto:halls@spraxxx.tv?subject=Propose%20a%20Hall">Propose a Hall</a>
+            <a class="btn alt" href="#pricing">Membership Unlocks Entry</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events (NEW) -->
+    <section class="block" id="events">
+      <h2>📆 Upcoming Events — Calendar</h2>
+      <div class="inner">
+        <div class="events-list">
+          <div class="event">
+            <strong>Oct 31 — SPRAXXX Halloween: Jedi Council Live</strong>
+            <div class="muted">Open mic, costume contest, and the Living Armor showcase. Live on SPRAXXX.TV at 8pm ET.</div>
+          </div>
+          <div class="event">
+            <strong>Nov 14 — Glengarry Launch Night</strong>
+            <div class="muted">Flagship theater opening. BBQ, music, and first official Dignity Wall ceremony.</div>
+          </div>
+          <div class="event">
+            <strong>Weekly — OpenMicTestimonyNights (Thursdays)</strong>
+            <div class="muted">Drop in, sign up via QR, stream to the Nation. Check local halls for times.</div>
+          </div>
+        </div>
+        <div style="margin-top:12px" class="row">
+          <a class="btn filled" href="/assets/openmic-qr.pdf" target="_blank" rel="noopener">Download QR Poster</a>
+          <a class="btn" href="mailto:events@spraxxx.tv?subject=Host%20an%20Event">Host an Event</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Mic Testimony Nights -->
+    <section class="block" id="openmic">
+      <h2>🎤 OpenMicTestimonyNights.tv — Say It. Share It. Stream It.</h2>
+      <div class="inner qr-card">
+        <div class="qr" aria-hidden="true">QR</div>
+        <div>
+          <p class="muted">Pop-up concerts & testimony nights anywhere. Print the QR poster, scan to check-in, watch live on <strong>SPRAXXX.TV</strong>. Portable kit: projector, PA, Starlink, mic.</p>
+          <div class="row">
+            <a class="btn filled" href="/assets/openmic-qr.pdf" target="_blank" rel="noopener">Download QR Poster</a>
+            <a class="btn" href="mailto:events@spraxxx.tv?subject=Host%20an%20Open%20Mic">Host an Event</a>
+          </div>
+          <p class="note">Tip: $10 entry waived on-site with Stripe verification. Super Users enter free & get first-mic priority.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Nation Tiers -->
     <section class="block" id="pricing">
       <h2>💸 Nation Pricing — Belonging Over Bloat</h2>
       <div class="inner pricing">
         <div class="plan">
           <h3>Badge of Brotherhood</h3>
-          <div class="price">$5</div>
+          <div class="price">$0</div>
           <ul>
-            <li>@spraxxx.com identity</li>
-            <li>Directory listing & verify mark</li>
+            <li>@spraxxx.com identity (forwarding)</li>
+            <li>Directory listing & basic verify mark</li>
             <li>Access to open community streams</li>
           </ul>
-          <a class="cta-btn" href="https://buy.stripe.com/aFa00iauG67CfZ22nr8IU08" target="_blank">Claim Badge</a>
+          <a class="btn filled" href="#verification">Get Free Badge</a>
         </div>
         <div class="plan">
           <h3>Nation Mailbox</h3>
-          <div class="price">$15/mo</div>
+          <div class="price">$1/mo</div>
           <ul>
-            <li>Full inbox @spraxxx.com</li>
-            <li>Calendar & storage</li>
-            <li>Nation-first, low-spam environment</li>
+            <li>Full inbox @spraxxx.com (send + receive)</li>
+            <li>Spam-light, Nation-first environment</li>
+            <li>Calendar & basic storage</li>
           </ul>
-          <a class="cta-btn" href="https://buy.stripe.com/6oU9ASdGScw09AE8LP8IU09" target="_blank">Upgrade Now</a>
+          <a class="btn filled" href="#verification">Upgrade Now</a>
         </div>
         <div class="plan">
           <h3>Super User — IAM Nation</h3>
-          <div class="price" style="color:#f0c;">$50/yr</div>
+          <div class="price">$50/yr</div>
           <ul>
             <li>Verified identity key (Stripe)</li>
-            <li>IAM Companion access at spraxxx.ai</li>
+            <li>IAM Companion at spraxxx.ai</li>
             <li>spraxxx.tv account + Dignity Wall posts</li>
             <li>@spraxxx.com + inbox.me</li>
             <li>VPN access</li>
             <li>Free entry to Nation halls</li>
           </ul>
-          <a class="cta-btn" href="https://buy.stripe.com/7sYfZgauGdA47swgeh8IU0a" target="_blank">Claim Sovereignty</a>
+          <a class="btn filled" href="#verification">Claim Sovereignty</a>
+        </div>
+      </div>
+      <div class="inner">
+        <p class="muted">Compare: Google/Microsoft $72–$144/yr. SPRAXXX gives identity + community + media for less than half.</p>
+      </div>
+    </section>
+
+    <!-- Verification CTA -->
+    <section class="block" id="verification">
+      <h2>✅ Verify Once. Belong Forever.</h2>
+      <div class="inner">
+        <p class="muted">Stripe handles the ID. We add the <em>human hello.</em> After you verify, a Nation Greeter will call to welcome you. No psychics. No phonetics. Just truth.</p>
+        <div class="row">
+          <a class="btn filled" href="https://verify.stripe.com/" target="_blank" rel="noopener">Begin Stripe Verification</a>
+          <a class="btn" href="mailto:verify@spraxxx.tv?subject=Help%20Me%20Verify">Need help?</a>
+        </div>
+        <p class="note">First wave greets may be personally handled by Jacques. Training the crew to keep the same warmth and soul.</p>
+      </div>
+    </section>
+
+    <!-- Shoutouts -->
+    <section class="block" id="shoutouts">
+      <h2>📣 Shoutouts — Community Fanfare</h2>
+      <div class="inner grid">
+        <div class="shout-card">
+          <p class="shout-title">Fournier — Certified Solid</p>
+          <p class="muted">Mark “Fournier” — respected, big-hearted, a real one in the community.</p>
+          <p class="saying">“Get to crack, eight days a week.”</p>
+          <div class="row">
+            <span class="tag">#Respect</span><span class="tag">#Homie</span><span class="tag">#GetToCrack</span>
+          </div>
+        </div>
+        <div class="shout-card">
+          <p class="shout-title">Katie — Right Beside Him</p>
+          <p class="muted">Steady energy, good vibes, day-one support. We see you, Katie.</p>
+          <div class="row">
+            <span class="tag">#Community</span><span class="tag">#DayOnes</span><span class="tag">#SPRAXXXNation</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Dignity Wall & Stewardship -->
+    <!-- Dignity Wall -->
     <section class="block" id="dignity-wall">
-      <h2>🧱 The Dignity Wall — Speak, Celebrate, Be Heard</h2>
+      <h2>🧱 The Dignity Wall</h2>
       <div class="inner">
-        <p class="muted"><em>Featured this week:</em> “I found my voice at the cedar lodge.” — Maple</p>
+        <p class="muted">Drop a line. Speak your truth. Selected posts appear here weekly.</p>
         <div class="row">
-          <a class="cta-btn" href="https://forms.gle/" target="_blank" rel="noopener">Add Your Line</a>
-          <a class="cta-btn" href="mailto:stories@spraxxx.tv?subject=Dignity%20Wall%20Submission">Email Your Story</a>
+          <a class="btn filled" href="https://forms.gle/" target="_blank" rel="noopener">Add Your Line</a>
+          <a class="btn" href="https://x.com/search?q=%23SPRAXXXNation" target="_blank" rel="noopener">#SPRAXXXNation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Redirect Note (SPREXXX -> SPRAXXX) -->
+    <section class="block" id="redirect-note">
+      <h2>🔁 Spellcatcher Active</h2>
+      <div class="inner">
+        <p class="muted">If you typed <strong>SPREXXX</strong> by mistake — welcome home. Our Cloudflare redirect net brings you to the real cedar lodge.</p>
+      </div>
+    </section>
+
+    <!-- NEW: Upgrades / Feature Roadmap CTA -->
+    <section class="block" id="upgrades">
+      <h2>🚧 Upgrades & Feature Roadmap</h2>
+      <div class="inner">
+        <p class="muted">What’s coming: upload portal (live), creator channels, R2-backed video hosting, secure Nation inboxes, and the Living Armor interactive page. We’ll open invites to founders soon — this is your chance to be an early Jedi.</p>
+        <div class="row">
+          <a class="btn filled" href="#pricing">Claim Founding Status</a>
+          <a class="btn" href="mailto:team@spraxxx.tv?subject=Founding%20Invite">Apply for Founding Invite</a>
         </div>
       </div>
     </section>
@@ -180,21 +513,26 @@
   </main>
 
   <footer>
+    <!-- Signal Prayer -->
     <p class="signal-prayer">
-      May these words ride the wires and waves, from backyard fires to satellites above.<br>
-      Peace, love, and unity — encoded in every light, streaming across the net, into hearts, into homes, into every open ear.<br>
-      Let gossip fall to ash, let truth grow green.<br>
-      From Glengarry to the globe, we trim away the dead, we breathe in the cedar, we lift up the song.<br>
-      <strong>Mucho respect.</strong>
+      May these words ride the wires and waves, from backyard fires to satellites above.
+      Peace, love, and unity — encoded in every light, streaming across the net, into hearts, into homes, into every open ear.
+      Let gossip fall to ash, let truth grow green. From Glengarry to the globe, we trim away the dead, we breathe in the cedar, we lift up the song.
+      <strong>Mucho respect.</strong> So it is carried. So it is received. So it is done.
     </p>
-    <nav aria-label="SPRAXXX Domains" style="margin:1rem 0;">
-      🌐 <a href="https://spraxxx.com" target="_blank">spraxxx.com</a> ·
-      <a href="https://spraxxx.ai" target="_blank">spraxxx.ai</a> ·
-      <a href="https://spraxxx.tv" target="_blank">spraxxx.tv</a> ·
-      <a href="https://spraxxx.net" target="_blank">spraxxx.net</a>
-    </nav>
+
+    <p>🌐 Explore the Nation:
+      <a href="https://spraxxx.com" target="_blank" rel="noopener">spraxxx.com</a> ·
+      <a href="https://spraxxx.ai" target="_blank" rel="noopener">spraxxx.ai</a> ·
+      <a href="https://spraxxx.tv" target="_blank" rel="noopener">spraxxx.tv</a> ·
+      <a href="https://spraxxx.net" target="_blank" rel="noopener">spraxxx.net</a> ·
+      <a href="https://www.cloudflare.com" target="_blank" rel="noopener">cloudflare.com</a>
+    </p>
     <p class="muted">© <span id="y"></span> SPRAXXX Nation — Brotherhood in Motion</p>
-    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
   </footer>
+
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+  </script>
 </body>
 </html>
