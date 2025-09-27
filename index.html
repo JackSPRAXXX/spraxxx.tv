@@ -7,12 +7,12 @@
   <meta name="description" content="SPRAXXX — brotherhood on the air: testimony, stewardship, and cosmic community. Listen, speak, build the Nation." />
   <meta name="theme-color" content="#000000" />
   <meta property="og:title" content="SPRAXXX.TV — The Nation Live" />
-  <meta property="og:description" content="Brotherhood on the air: open mic, truth, and movement. New StarMaker cover inside." />
+  <meta property="og:description" content="Brotherhood on the air: open mic, truth, and movement. StarMaker & YouTube features inside." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="SPRAXXX.TV — The Nation Live" />
-  <meta name="twitter:description" content="Open mic, truth, and movement. New StarMaker cover inside." />
+  <meta name="twitter:description" content="Open mic, truth, and movement. StarMaker & YouTube features inside." />
   <meta name="twitter:image" content="/og.jpg" />
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="/assets/manifest.json">
@@ -34,7 +34,7 @@
     .cta-btn:hover{background:#fff;color:var(--accent);}
     h2{margin-top:0;font-size:1.3rem;color:var(--accent);}
     section{margin-bottom:2rem;}
-    .tracks, .headliners{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem;margin-top:1.2rem;}
+    .tracks, .headliners, .feature-of-week{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem;margin-top:1.2rem;}
     .track-card{background:var(--card);padding:1rem;border-radius:8px;box-shadow:var(--shadow);transition:transform .3s;display:flex;flex-direction:column;gap:.5rem;}
     .track-card:hover{transform:scale(1.04);}
     iframe{width:100%;height:300px;border:none;border-radius:4px;background:#000;}
@@ -51,7 +51,7 @@
     .plan ul{margin:0 0 10px 18px;padding:0;}
     .plan li{margin:6px 0;}
     @media (max-width:900px){.pricing{grid-template-columns:1fr}}
-    @media (max-width:700px){.tracks, .headliners{grid-template-columns:1fr;}iframe{height:200px;}.wrap{padding:1rem .2rem;}}
+    @media (max-width:700px){.tracks, .headliners, .feature-of-week{grid-template-columns:1fr;}iframe{height:200px;}.wrap{padding:1rem .2rem;}}
     .governance-chain,.covenant-block{margin:.5rem 0;padding:1rem;background:var(--banner);border-radius:var(--r);}
     .governance-chain h2, .covenant-block h2{font-size:1.2rem;color:var(--accent);}
     .repo-files ul{margin:0 0 .2rem 1.2rem;}
@@ -98,34 +98,34 @@
       </p>
     </section>
 
+    <!-- Feature of the Week -->
     <section>
-      <h2>🎵 Feature of the Week — Unfaithful (Rihanna Tribute)</h2>
-      <div class="tracks">
+      <h2>🎵 Feature of the Week</h2>
+      <div class="feature-of-week">
         <div class="track-card">
-          <h3>Unfaithful — Rihanna (Tribute)</h3>
-          <span class="muted">Cover by Maple</span>
-          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=7318349468116495" title="Track: Unfaithful" loading="lazy"></iframe>
-          <div class="row">
-            <a class="cta-btn" href="https://m.starmakerstudios.com/" target="_blank" rel="noopener" aria-label="Open in StarMaker">Open in StarMaker</a>
-          </div>
+          <h3>Unfaithful - Rihanna (Tribute)</h3>
+          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349468116495&share_type=copylink" title="Track: Unfaithful - Rihanna" loading="lazy"></iframe>
+          <a class="cta-btn" href="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349468116495&share_type=copylink" target="_blank" rel="noopener">Listen on StarMaker</a>
         </div>
       </div>
     </section>
 
+    <!-- StarMaker Discoveries Marquee -->
     <section>
-      <h2>🎤 Other StarMaker Covers</h2>
+      <h2>🌌 StarMaker Discoveries</h2>
       <div class="marquee">
         <div class="track-card">
           <h3>Hopelessly Devoted to You</h3>
-          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=10414574242775772" title="Track: Hopelessly Devoted to You" loading="lazy"></iframe>
+          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=10414574242775772&share_type=copylink" title="Track: Hopelessly Devoted to You" loading="lazy"></iframe>
         </div>
         <div class="track-card">
-          <h3>Another Brick in the Wall</h3>
-          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=7318349465997960" title="Track: Another Brick in the Wall" loading="lazy"></iframe>
+          <h3>Another Brick In The Wall</h3>
+          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?app=sm&from_sid=100038698755&guide_type=2&pg_rf_ca_vn=20&pid=recordingsharing&recordingId=7318349465997960&share_type=copylink" title="Track: Another Brick In The Wall" loading="lazy"></iframe>
         </div>
       </div>
     </section>
 
+    <!-- Pricing Plans -->
     <section class="block" id="pricing">
       <h2>💸 Nation Pricing — Belonging Over Bloat</h2>
       <div class="inner pricing">
@@ -133,34 +133,46 @@
           <h3>Badge of Brotherhood</h3>
           <div class="price">$5</div>
           <ul>
-            <li>@spraxxx.com identity (forwarding)</li>
-            <li>Directory listing & basic verify mark</li>
+            <li>@spraxxx.com identity</li>
+            <li>Directory listing & verify mark</li>
             <li>Access to open community streams</li>
           </ul>
-          <a class="cta-btn" href="https://buy.stripe.com/aFa00iauG67CfZ22nr8IU08" target="_blank" rel="noopener" aria-label="Buy Badge of Brotherhood">Buy Badge</a>
+          <a class="cta-btn" href="https://buy.stripe.com/aFa00iauG67CfZ22nr8IU08" target="_blank">Claim Badge</a>
         </div>
         <div class="plan">
           <h3>Nation Mailbox</h3>
-          <div class="price">$15</div>
+          <div class="price">$15/mo</div>
           <ul>
-            <li>Full inbox @spraxxx.com (send + receive)</li>
-            <li>Spam-light, Nation-first environment</li>
-            <li>Calendar & basic storage</li>
+            <li>Full inbox @spraxxx.com</li>
+            <li>Calendar & storage</li>
+            <li>Nation-first, low-spam environment</li>
           </ul>
-          <a class="cta-btn" href="https://buy.stripe.com/6oU9ASdGScw09AE8LP8IU09" target="_blank" rel="noopener" aria-label="Upgrade to Nation Mailbox">Upgrade Now</a>
+          <a class="cta-btn" href="https://buy.stripe.com/6oU9ASdGScw09AE8LP8IU09" target="_blank">Upgrade Now</a>
         </div>
         <div class="plan">
           <h3>Super User — IAM Nation</h3>
           <div class="price" style="color:#f0c;">$50/yr</div>
           <ul>
             <li>Verified identity key (Stripe)</li>
-            <li>IAM Companion at spraxxx.ai</li>
+            <li>IAM Companion access at spraxxx.ai</li>
             <li>spraxxx.tv account + Dignity Wall posts</li>
             <li>@spraxxx.com + inbox.me</li>
             <li>VPN access</li>
             <li>Free entry to Nation halls</li>
           </ul>
-          <a class="cta-btn" href="https://buy.stripe.com/7sYfZgauGdA47swgeh8IU0a" target="_blank" rel="noopener" aria-label="Claim Super User">Claim Sovereignty</a>
+          <a class="cta-btn" href="https://buy.stripe.com/7sYfZgauGdA47swgeh8IU0a" target="_blank">Claim Sovereignty</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dignity Wall & Stewardship -->
+    <section class="block" id="dignity-wall">
+      <h2>🧱 The Dignity Wall — Speak, Celebrate, Be Heard</h2>
+      <div class="inner">
+        <p class="muted"><em>Featured this week:</em> “I found my voice at the cedar lodge.” — Maple</p>
+        <div class="row">
+          <a class="cta-btn" href="https://forms.gle/" target="_blank" rel="noopener">Add Your Line</a>
+          <a class="cta-btn" href="mailto:stories@spraxxx.tv?subject=Dignity%20Wall%20Submission">Email Your Story</a>
         </div>
       </div>
     </section>
@@ -173,18 +185,16 @@
       Peace, love, and unity — encoded in every light, streaming across the net, into hearts, into homes, into every open ear.<br>
       Let gossip fall to ash, let truth grow green.<br>
       From Glengarry to the globe, we trim away the dead, we breathe in the cedar, we lift up the song.<br>
-      <strong>Mucho respect.</strong> So it is carried. So it is received. So it is done.
+      <strong>Mucho respect.</strong>
     </p>
     <nav aria-label="SPRAXXX Domains" style="margin:1rem 0;">
-      🌐 <a href="https://spraxxx.com" target="_blank" rel="noopener">spraxxx.com</a> ·
-      <a href="https://spraxxx.ai" target="_blank" rel="noopener">spraxxx.ai</a> ·
-      <a href="https://spraxxx.tv" target="_blank" rel="noopener">spraxxx.tv</a> ·
-      <a href="https://spraxxx.net" target="_blank" rel="noopener">spraxxx.net</a>
+      🌐 <a href="https://spraxxx.com" target="_blank">spraxxx.com</a> ·
+      <a href="https://spraxxx.ai" target="_blank">spraxxx.ai</a> ·
+      <a href="https://spraxxx.tv" target="_blank">spraxxx.tv</a> ·
+      <a href="https://spraxxx.net" target="_blank">spraxxx.net</a>
     </nav>
     <p class="muted">© <span id="y"></span> SPRAXXX Nation — Brotherhood in Motion</p>
-    <script>
-      document.getElementById('y').textContent = new Date().getFullYear();
-    </script>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
   </footer>
 </body>
 </html>
