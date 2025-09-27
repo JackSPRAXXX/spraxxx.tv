@@ -106,6 +106,29 @@
 
     /* Toast/Note */
     .note{background:#0b0b0b;border:1px solid var(--edge);border-radius:10px;padding:10px;color:#ccc;font-size:13px}
+
+    /* NEW: Exclusive ad slot */
+    .ad-exclusive {
+      background: linear-gradient(90deg,#030303,#070707);
+      color:#fff;
+      border:2px solid rgba(255,42,42,0.06);
+      padding:14px;
+      text-align:center;
+      font-weight:800;
+      letter-spacing:.6px;
+      border-radius:10px;
+      margin:12px 0;
+    }
+    .ad-exclusive .big {font-size:16px}
+    .ad-exclusive .small {color:var(--muted);font-weight:400;font-size:12px;margin-top:6px}
+
+    /* NEW: Discoveries */
+    .discoveries .item{display:flex;gap:12px;align-items:flex-start;border-top:1px dashed rgba(255,255,255,0.03);padding:12px 0}
+    .discoveries .thumb{width:86px;height:60px;background:#070707;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#777;font-size:12px}
+    .discoveries .meta{flex:1}
+    .events-list{display:flex;flex-direction:column;gap:10px}
+    .event{background:#070707;border:1px solid var(--edge);padding:10px;border-radius:8px}
+    .about-center{background:linear-gradient(180deg, rgba(0,255,200,0.02), transparent);border:1px solid rgba(0,255,200,0.04);padding:16px;border-radius:12px;text-align:center}
   </style>
 </head>
 <body>
@@ -122,6 +145,12 @@
 
   <main class="wrap">
 
+    <!-- NEW: Exclusive fake ad banner -->
+    <div class="ad-exclusive" aria-hidden="true">
+      <div class="big">🚫 ADVERTISING UNAVAILABLE — THIS SPACE IS RESERVED</div>
+      <div class="small">Estimated future value: <strong>$250,000/month</strong>. We don't sell out. Earn the mic.</div>
+    </div>
+
     <!-- Bye Phonetics Banner -->
     <section class="block phonetics" id="bye-phonetics">
       <div class="inner">
@@ -131,6 +160,7 @@
         <div class="row">
           <a class="btn filled" href="#theaters">Find a Hall</a>
           <a class="btn alt" href="#verification">Get Verified</a>
+          <a class="btn" href="https://upload.spraxxx.tv" target="_blank" rel="noopener">Upload Your Video</a>
         </div>
       </div>
     </section>
@@ -160,6 +190,19 @@
       <div class="banner bottom">SPRAXXX Nation approves — Track of the Week!</div>
     </section>
 
+    <!-- NEW: ABOUT — Strong center piece -->
+    <section class="block" id="about">
+      <div class="inner about-center">
+        <h2>WHO WE ARE · WHERE WE ARE · WHERE WE'RE GOING</h2>
+        <p class="muted">SPRAXXX.TV is the Nation — a place for unfiltered voices, for testimony, and for the raw art that mainstream silences. We build identity (3X), community halls, secure inboxes, and a media home where creators are elevated, not erased.</p>
+        <p class="muted">Right now: building upload tools, identity keys, and a living Dignity Wall. Next: global creator invites, exclusive community sponsorships, and streamed OpenMicTestimonyNights across the Nation.</p>
+        <div class="row">
+          <a class="btn filled" href="#pricing">See Upgrades & Features</a>
+          <a class="btn alt" href="#theaters">Join a Hall</a>
+        </div>
+      </div>
+    </section>
+
     <!-- Community Music Short -->
     <section class="block" id="community-short">
       <h2>🎱 Community Music Short — SPRAXXX Share</h2>
@@ -169,6 +212,51 @@
           <a class="btn filled" href="https://m.starmakerstudios.com/v/share?app_name=sm&from_sid=100038698755&language=en-CA&pg_rf_ca_vn=542&sm_id=5687580725&share_type=copylink" target="_blank" rel="noopener">Open Music Short</a>
           <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Feature%20my%20Music%20Short">Feature My Short</a>
         </div>
+      </div>
+    </section>
+
+    <!-- NEW: Discoveries (StarMaker finds) -->
+    <section class="block discoveries" id="discoveries">
+      <h2>🔎 Discoveries — Hidden Gems We Found</h2>
+      <div class="inner">
+        <p class="muted">We scout. We highlight. If you find a voice like this, we feature it. Sharing the best covers we found on StarMaker.</p>
+
+        <div class="item">
+          <div class="thumb">🎤</div>
+          <div class="meta">
+            <strong>The Time Of My Life — Cover</strong>
+            <div class="muted">A stunning cover we had to share. Tap to open in StarMaker.</div>
+            <div class="row" style="margin-top:8px">
+              <a class="btn filled" href="https://starmaker.onelink.me/v4ei/dkp5afjs" target="_blank" rel="noopener">Open — The Time Of My Life</a>
+              <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Found%20a%20Discovery">Nominate a discovery</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="thumb">🎤</div>
+          <div class="meta">
+            <strong>Please Forgive Me — Cover</strong>
+            <div class="muted">Raw emotion and pitch-perfect phrasing. Check it.</div>
+            <div class="row" style="margin-top:8px">
+              <a class="btn filled" href="https://starmaker.onelink.me/v4ei/c8sk3zpd" target="_blank" rel="noopener">Open — Please Forgive Me</a>
+              <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Found%20a%20Discovery">Nominate</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="thumb">🎤</div>
+          <div class="meta">
+            <strong>Heaven Is A Place On Earth — Cover</strong>
+            <div class="muted">A bright, nostalgic take we had to share with the Nation.</div>
+            <div class="row" style="margin-top:8px">
+              <a class="btn filled" href="https://starmaker.onelink.me/v4ei/hmtfns9r" target="_blank" rel="noopener">Open — Heaven Is A Place On Earth</a>
+              <a class="btn" href="mailto:submissions@spraxxx.tv?subject=Found%20a%20Discovery">Nominate</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -267,6 +355,31 @@
             <a class="btn" href="mailto:halls@spraxxx.tv?subject=Propose%20a%20Hall">Propose a Hall</a>
             <a class="btn alt" href="#pricing">Membership Unlocks Entry</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events (NEW) -->
+    <section class="block" id="events">
+      <h2>📆 Upcoming Events — Calendar</h2>
+      <div class="inner">
+        <div class="events-list">
+          <div class="event">
+            <strong>Oct 31 — SPRAXXX Halloween: Jedi Council Live</strong>
+            <div class="muted">Open mic, costume contest, and the Living Armor showcase. Live on SPRAXXX.TV at 8pm ET.</div>
+          </div>
+          <div class="event">
+            <strong>Nov 14 — Glengarry Launch Night</strong>
+            <div class="muted">Flagship theater opening. BBQ, music, and first official Dignity Wall ceremony.</div>
+          </div>
+          <div class="event">
+            <strong>Weekly — OpenMicTestimonyNights (Thursdays)</strong>
+            <div class="muted">Drop in, sign up via QR, stream to the Nation. Check local halls for times.</div>
+          </div>
+        </div>
+        <div style="margin-top:12px" class="row">
+          <a class="btn filled" href="/assets/openmic-qr.pdf" target="_blank" rel="noopener">Download QR Poster</a>
+          <a class="btn" href="mailto:events@spraxxx.tv?subject=Host%20an%20Event">Host an Event</a>
         </div>
       </div>
     </section>
@@ -382,6 +495,18 @@
       <h2>🔁 Spellcatcher Active</h2>
       <div class="inner">
         <p class="muted">If you typed <strong>SPREXXX</strong> by mistake — welcome home. Our Cloudflare redirect net brings you to the real cedar lodge.</p>
+      </div>
+    </section>
+
+    <!-- NEW: Upgrades / Feature Roadmap CTA -->
+    <section class="block" id="upgrades">
+      <h2>🚧 Upgrades & Feature Roadmap</h2>
+      <div class="inner">
+        <p class="muted">What’s coming: upload portal (live), creator channels, R2-backed video hosting, secure Nation inboxes, and the Living Armor interactive page. We’ll open invites to founders soon — this is your chance to be an early Jedi.</p>
+        <div class="row">
+          <a class="btn filled" href="#pricing">Claim Founding Status</a>
+          <a class="btn" href="mailto:team@spraxxx.tv?subject=Founding%20Invite">Apply for Founding Invite</a>
+        </div>
       </div>
     </section>
 
