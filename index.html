@@ -38,7 +38,7 @@
     .track-card{background:var(--card);padding:1rem;border-radius:8px;box-shadow:var(--shadow);transition:transform .3s;display:flex;flex-direction:column;gap:.5rem;}
     .track-card:hover{transform:scale(1.04);}
     iframe{width:100%;height:300px;border:none;border-radius:4px;background:#000;}
-    .marquee{display:flex;gap:1rem;overflow-x:auto;padding-bottom:1rem;scrollbar-width:thin;scrollbar-color:var(--accent) var(--banner;}
+    .marquee{display:flex;gap:1rem;overflow-x:auto;padding-bottom:1rem;scrollbar-width:thin;scrollbar-color:var(--accent) var(--banner);}
     .events-list{margin-top:1rem;display:flex;flex-direction:column;gap:.6rem;}
     .muted{color:var(--muted);font-size:.95rem;}
     .block{margin:28px 0;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);overflow:hidden;}
@@ -99,52 +99,29 @@
     </section>
 
     <section>
-      <h2>Track of the Week</h2>
-      <div class="tracks"></div>
-    </section>
-
-    <section>
-      <h2>Community Discoveries</h2>
-      <div class="marquee"></div>
-    </section>
-
-    <section>
-      <h2>StarMaker Headliners</h2>
-      <div class="headliners">
+      <h2>🎵 Feature of the Week — Unfaithful (Rihanna Tribute)</h2>
+      <div class="tracks">
         <div class="track-card">
-          <h3>Hey There Delilah</h3>
-          <iframe src="https://www.starmakerstudios.com/embed/track-id-hey-there-delilah" title="Track: Hey There Delilah" loading="lazy"></iframe>
-          <a class="cta-btn" href="https://www.starmakerstudios.com/" target="_blank" rel="noopener" aria-label="Open in StarMaker">Open in StarMaker</a>
-        </div>
-        <div class="track-card">
-          <h3>Last Kiss</h3>
-          <iframe src="https://www.starmakerstudios.com/embed/track-id-last-kiss" title="Track: Last Kiss" loading="lazy"></iframe>
-          <a class="cta-btn" href="https://www.starmakerstudios.com/" target="_blank" rel="noopener" aria-label="Open in StarMaker">Open in StarMaker</a>
+          <h3>Unfaithful — Rihanna (Tribute)</h3>
+          <span class="muted">Cover by Maple</span>
+          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=7318349468116495" title="Track: Unfaithful" loading="lazy"></iframe>
+          <div class="row">
+            <a class="cta-btn" href="https://m.starmakerstudios.com/" target="_blank" rel="noopener" aria-label="Open in StarMaker">Open in StarMaker</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="block" id="events">
-      <h2>📆 Upcoming Events — Invitation to Gather</h2>
-      <div class="inner events-list">
-        <div class="event">
-          <strong>Oct 31 — SPRAXXX Halloween: Jedi Council Live</strong>
-          <p class="muted">Open mic, costume contest, Living Armor showcase.<br>
-          Join the Nation live at 8pm ET — come as you are, or as you dream.</p>
+    <section>
+      <h2>🎤 Other StarMaker Covers</h2>
+      <div class="marquee">
+        <div class="track-card">
+          <h3>Hopelessly Devoted to You</h3>
+          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=10414574242775772" title="Track: Hopelessly Devoted to You" loading="lazy"></iframe>
         </div>
-        <div class="event">
-          <strong>Nov 14 — Glengarry Launch Night</strong>
-          <p class="muted">BBQ, music, first Dignity Wall ceremony.<br>
-          All are invited to steward the flagship cedar lodge.</p>
-        </div>
-        <div class="event">
-          <strong>Thursdays — OpenMicTestimonyNights</strong>
-          <p class="muted">Drop in, sign up via QR, stream to the Nation.<br>
-          Every week, every voice honored. Check local halls for times.</p>
-        </div>
-        <div class="row" style="margin-top:1rem;">
-          <a class="cta-btn" href="/assets/openmic-qr.pdf" target="_blank" rel="noopener" aria-label="Download QR Poster">Download QR Poster</a>
-          <a class="cta-btn" href="mailto:events@spraxxx.tv?subject=Host%20an%20Event" aria-label="Host an Event">Host an Event</a>
+        <div class="track-card">
+          <h3>Another Brick in the Wall</h3>
+          <iframe src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=7318349465997960" title="Track: Another Brick in the Wall" loading="lazy"></iframe>
         </div>
       </div>
     </section>
@@ -154,23 +131,23 @@
       <div class="inner pricing">
         <div class="plan">
           <h3>Badge of Brotherhood</h3>
-          <div class="price">$0</div>
+          <div class="price">$5</div>
           <ul>
             <li>@spraxxx.com identity (forwarding)</li>
             <li>Directory listing & basic verify mark</li>
             <li>Access to open community streams</li>
           </ul>
-          <a class="cta-btn" href="#verification" aria-label="Get Free Badge">Get Free Badge</a>
+          <a class="cta-btn" href="https://buy.stripe.com/aFa00iauG67CfZ22nr8IU08" target="_blank" rel="noopener" aria-label="Buy Badge of Brotherhood">Buy Badge</a>
         </div>
         <div class="plan">
           <h3>Nation Mailbox</h3>
-          <div class="price">$1/mo</div>
+          <div class="price">$15</div>
           <ul>
             <li>Full inbox @spraxxx.com (send + receive)</li>
             <li>Spam-light, Nation-first environment</li>
             <li>Calendar & basic storage</li>
           </ul>
-          <a class="cta-btn" href="#verification" aria-label="Upgrade Now">Upgrade Now</a>
+          <a class="cta-btn" href="https://buy.stripe.com/6oU9ASdGScw09AE8LP8IU09" target="_blank" rel="noopener" aria-label="Upgrade to Nation Mailbox">Upgrade Now</a>
         </div>
         <div class="plan">
           <h3>Super User — IAM Nation</h3>
@@ -183,51 +160,8 @@
             <li>VPN access</li>
             <li>Free entry to Nation halls</li>
           </ul>
-          <a class="cta-btn" href="#verification" aria-label="Claim Sovereignty">Claim Sovereignty</a>
+          <a class="cta-btn" href="https://buy.stripe.com/7sYfZgauGdA47swgeh8IU0a" target="_blank" rel="noopener" aria-label="Claim Super User">Claim Sovereignty</a>
         </div>
-      </div>
-      <div class="inner">
-        <p class="muted">SPRAXXX gives identity + community + media for less than half the price of mainstream tech. Stewardship over bloat. <strong>$50/year baseline for individuals.</strong></p>
-      </div>
-    </section>
-
-    <section class="block" id="dignity-wall">
-      <h2>🧱 The Dignity Wall — Speak, Celebrate, Be Heard</h2>
-      <div class="inner">
-        <p class="muted"><em>Featured this week:</em> “I found my voice at the cedar lodge.” — Maple</p>
-        <p class="muted">Share your story, celebrate the community, and let your voice be honored.<br>
-        Selected posts are displayed weekly. All are welcome to contribute.</p>
-        <div class="row">
-          <a class="cta-btn" href="https://forms.gle/" target="_blank" rel="noopener" aria-label="Add Your Line">Add Your Line</a>
-          <a class="cta-btn" href="https://x.com/search?q=%23SPRAXXXNation" target="_blank" rel="noopener" aria-label="View #SPRAXXXNation">View #SPRAXXXNation</a>
-          <a class="cta-btn" href="mailto:stories@spraxxx.tv?subject=Dignity%20Wall%20Submission" aria-label="Email Your Story">Email Your Story</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" id="stewardship-invite">
-      <h2>🤝 Stewardship Invitation</h2>
-      <div class="inner">
-        <p class="muted">
-          SPRAXXX is a living project—shaped by those who show up.<br>
-          Want to help steward, govern, or support? <a class="cta-btn" href="mailto:team@spraxxx.tv?subject=Stewardship">Apply Here</a>
-        </p>
-      </div>
-    </section>
-
-    <section class="block repo-files" id="repo-files">
-      <h2>🔗 SPRAXXX.TV Repo Files & Feedback</h2>
-      <div class="inner">
-        <ul>
-          <li><a href="https://github.com/JackSPRAXXX/spraxxx.tv/blob/main/index.html" target="_blank" rel="noopener" aria-label="View index.html">index.html</a></li>
-          <li><a href="https://github.com/JackSPRAXXX/spraxxx.tv/blob/main/styles.css" target="_blank" rel="noopener" aria-label="View styles.css">styles.css</a></li>
-          <li><a href="https://github.com/JackSPRAXXX/spraxxx.tv/tree/main/assets" target="_blank" rel="noopener" aria-label="View assets">assets/</a></li>
-        </ul>
-        <p class="muted">
-          View and steward the code behind SPRAXXX.TV.<br>
-          <a class="cta-btn" href="https://github.com/JackSPRAXXX/spraxxx.tv/issues/new?template=suggestion.md" target="_blank" rel="noopener" aria-label="Suggest an Edit">Suggest an Edit</a>
-          <a class="cta-btn" href="https://forms.gle/" target="_blank" rel="noopener" aria-label="Share Feedback">Share Feedback</a>
-        </p>
       </div>
     </section>
 
@@ -248,63 +182,9 @@
       <a href="https://spraxxx.net" target="_blank" rel="noopener">spraxxx.net</a>
     </nav>
     <p class="muted">© <span id="y"></span> SPRAXXX Nation — Brotherhood in Motion</p>
-    <p class="muted" style="margin-top:1rem;">Created by Jacques, refined in companionship with ChatGPT 5.0.</p>
-    <p class="muted" style="text-align:center; margin-top:1rem;">
-      Companionship is our discipline. Stewardship is our song. Mucho respect.
-    </p>
     <script>
       document.getElementById('y').textContent = new Date().getFullYear();
     </script>
   </footer>
-
-  <!-- Auto-rotating marquee & dynamic tracks loader -->
-  <script>
-  (async function(){
-    // Fetch tracks.json
-    const res = await fetch('/tracks.json');
-    const data = await res.json();
-
-    // Track of the Week
-    const trackWeekContainer = document.querySelector('.tracks');
-    if(trackWeekContainer && data.trackOfTheWeek){
-      trackWeekContainer.innerHTML = `
-        <div class="track-card">
-          <h3>${data.trackOfTheWeek.title}</h3>
-          <span class="muted">Cover by ${data.trackOfTheWeek.artist}</span>
-          <iframe src="${data.trackOfTheWeek.embed}" title="Track: ${data.trackOfTheWeek.title}" loading="lazy"></iframe>
-          <div>
-            <button class="cta-btn" aria-label="Like Track">👍 Like</button>
-            <a class="cta-btn" href="https://www.starmakerstudios.com/" target="_blank" rel="noopener" aria-label="Open in StarMaker">Open in StarMaker</a>
-          </div>
-        </div>
-      `;
-    }
-
-    // Community Discoveries Marquee
-    const marqueeContainer = document.querySelector('.marquee');
-    if(marqueeContainer && Array.isArray(data.discoveries)){
-      marqueeContainer.innerHTML = data.discoveries.map(track => `
-        <div class="track-card">
-          <h3>${track.title}</h3>
-          <iframe src="${track.embed}" title="Track: ${track.title}" loading="lazy"></iframe>
-        </div>
-      `).join('');
-
-      // Auto-scroll animation
-      let scrollPos = 0;
-      const speed = 1; // px per frame
-      function scrollMarquee(){
-        scrollPos += speed;
-        if(scrollPos >= marqueeContainer.scrollWidth / 2) scrollPos = 0;
-        marqueeContainer.scrollLeft = scrollPos;
-        requestAnimationFrame(scrollMarquee);
-      }
-
-      // Duplicate items for seamless infinite scroll
-      marqueeContainer.innerHTML += marqueeContainer.innerHTML;
-      scrollMarquee();
-    }
-  })();
-  </script>
 </body>
 </html>
