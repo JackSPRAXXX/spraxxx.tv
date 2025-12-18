@@ -1,415 +1,582 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>SPRAXXX.TV | The Nation Live</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SPRAXXX — brotherhood on the air: open mic, truth, and movement. Listen, speak, build the Nation." />
-  <meta name="theme-color" content="#000000" />
-  <link rel="canonical" href="https://spraxxx.tv/" />
-
-  <!-- Icons / PWA (optional: swap paths if you have them) -->
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-
-  <!-- Social -->
-  <meta property="og:title" content="SPRAXXX.TV — The Nation Live" />
-  <meta property="og:description" content="Brotherhood on the air: open mic, truth, and movement. New StarMaker cover inside." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://spraxxx.tv/" />
-  <meta property="og:image" content="/og.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SPRAXXX.TV — The Nation Live" />
-  <meta name="twitter:description" content="Open mic, truth, and movement. New StarMaker cover inside." />
-  <meta name="twitter:image" content="/og.jpg" />
-
-  <!-- Performance hints -->
-  <link rel="preconnect" href="https://m.starmakerstudios.com" crossorigin />
-  <link rel="preconnect" href="https://archive.org" crossorigin />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <title>SPRAXXX.TV — Arcade + Archive</title>
 
   <style>
     :root{
-      --bg:#000;--fg:#fff;--ink:#00ffc8;--ink2:#ff2a2a;--muted:#9a9a9a;--card:#0a0a0a;--edge:#151515;--r:12px;
-      --glow:0 0 22px rgba(0,255,200,.15);--focus-ring:0 0 0 3px rgba(0,255,200,.35)
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg)}
-    a{color:var(--ink);text-decoration:none}
-    a:focus-visible,button:focus-visible,.btn:focus-visible{outline:none;box-shadow:var(--focus-ring)}
-    .wrap{max-width:1080px;margin:0 auto;padding:18px 16px 80px}
-    .skip-link{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip-link:focus{left:16px;top:12px;width:auto;height:auto;background:#111;color:#fff;padding:8px 12px;border-radius:8px;border:1px solid var(--edge);z-index:1000}
+      --bg:#0b0f14;
+      --panel:#111a24;
+      --panel2:#0f1620;
+      --line:#1b2430;
+      --txt:#e9eef5;
+      --mut:#9fb1c7;
+      --acc:#2a3b52;
+      --good:#4ade80;
+      --warn:#fbbf24;
+      --bad:#ff6b6b;
 
-    /* accessibility utility */
-    .visually-hidden{
-      position:absolute!important;
-      width:1px!important;height:1px!important;
-      padding:0!important;margin:-1px!important;
-      overflow:hidden!important;clip:rect(0,0,0,0)!important;
-      white-space:nowrap!important;border:0!important;
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max: 1100px;
+      --pad: 14px;
     }
 
-    header{padding:28px 16px 10px;text-align:center;border-bottom:1px solid #111;position:relative;overflow:hidden}
-    header:before{
-      content:"";position:absolute;inset:-40% -40% auto -40%;
-      height:240px;background:radial-gradient(ellipse at center, rgba(0,255,200,.08), transparent 60%);
-      filter:blur(12px);pointer-events:none
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 30% 0%, rgba(42,59,82,.35), transparent 60%),
+                  radial-gradient(900px 600px at 80% 30%, rgba(42,59,82,.22), transparent 60%),
+                  var(--bg);
+      color:var(--txt);
     }
-    header h1{margin:0;font-size:clamp(30px,4.2vw,44px);letter-spacing:.5px}
-    header p{margin:6px 0 0;color:var(--muted)}
-    nav.domains{margin-top:10px;font-size:14px}
-    nav.domains a{color:#fff;opacity:.95;border:1px solid var(--edge);padding:6px 10px;border-radius:999px;display:inline-block;margin:4px 4px 0}
 
-    main h2{margin:0;padding:14px 16px;font-size:18px;background:#0f0f0f;border-bottom:1px solid var(--edge)}
-    .block{margin:28px 0;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);overflow:hidden}
-    .inner{padding:14px}
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 18px var(--pad) 90px; }
 
-    .player{position:relative;aspect-ratio:16/9;width:100%;background:#000;border-radius:10px;overflow:hidden}
-    iframe{width:100%;height:100%;border:0}
+    header{
+      position: sticky;
+      top:0;
+      z-index: 20;
+      background: linear-gradient(to bottom, rgba(11,15,20,.92), rgba(11,15,20,.65));
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(27,36,48,.6);
+    }
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 14px var(--pad);
+      display:flex;
+      align-items:center;
+      gap:12px;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 220px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, #2a3b52, #0f1620);
+      border:1px solid rgba(159,177,199,.22);
+      box-shadow: var(--shadow);
+      display:grid; place-items:center;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand h1{
+      margin:0;
+      font-size:15px;
+      letter-spacing:.6px;
+    }
+    .brand .sub{
+      margin:2px 0 0;
+      font-size:12px;
+      color:var(--mut);
+    }
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .pill{
+      border:1px solid rgba(159,177,199,.18);
+      background: rgba(17,26,36,.55);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      color: var(--mut);
+    }
+    .pill:hover{ color: var(--txt); border-color: rgba(159,177,199,.32); text-decoration:none; }
 
-    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .btn{display:inline-block;padding:10px 14px;font-weight:700;border:1px solid var(--ink);border-radius:10px;line-height:1}
-    .btn:hover{transform:translateY(-1px)}
-    .btn.filled{background:var(--ink);color:#000}
-    .btn.alt{border-color:var(--ink2);color:#fff}
-    .muted{color:var(--muted);font-size:14px}
+    .hero{
+      margin-top: 14px;
+      padding: 18px;
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(17,26,36,.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero h2{ margin:0 0 8px; font-size:18px; letter-spacing:.3px; }
+    .hero p{ margin:0; color:var(--mut); line-height:1.45; }
+    .cta{
+      margin-top: 12px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(159,177,199,.18);
+      background: rgba(42,59,82,.35);
+      color: var(--txt);
+      font-size: 13px;
+      cursor:pointer;
+      user-select:none;
+      text-decoration:none;
+    }
+    .btn:hover{ border-color: rgba(159,177,199,.35); background: rgba(42,59,82,.5); text-decoration:none; }
+    .btn.secondary{ background: rgba(17,26,36,.55); color: var(--mut); }
+    .dot{ width:8px; height:8px; border-radius:50%; background: var(--good); box-shadow: 0 0 0 4px rgba(74,222,128,.12); }
 
-    footer{text-align:center;padding:26px 12px;color:var(--muted);border-top:1px solid #111}
+    section{ margin-top: 16px; }
+    .section-title{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px;
+      margin: 18px 2px 10px;
+    }
+    .section-title h3{
+      margin:0;
+      font-size: 14px;
+      letter-spacing:.7px;
+      text-transform: uppercase;
+      color: var(--mut);
+    }
 
-    /* Track of the Week + Banners */
-    .track-of-week{position:relative}
-    .track-of-week .banner{background:var(--ink);color:#000;font-weight:900;text-align:center;padding:.9rem 1rem}
-    .track-of-week .banner.top{border-bottom:1px solid #008f79}
-    .track-of-week .banner.bottom{border-top:1px solid #008f79}
-    .track-of-week .emojis{display:flex;justify-content:center;gap:18px;margin:.6rem 0 .2rem}
-    .chip{display:inline-block;background:#111;border:1px solid var(--edge);border-radius:999px;padding:6px 10px;font-size:13px;color:#ddd}
-    .tw-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 12px 14px}
-    .tw-stars,.tw-thumbs{font-size:1.1rem;letter-spacing:2px}
-    .tw-title{font-weight:700}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .card{
+      grid-column: span 12;
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(17,26,36,.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      overflow:hidden;
+    }
+    .card h4{ margin:0 0 8px; font-size: 15px; }
+    .card p{ margin:0; color: var(--mut); line-height:1.45; }
+    .meta{ margin-top: 10px; display:flex; gap:10px; flex-wrap:wrap; color: var(--mut); font-size:12px; }
 
-    /* Signal Prayer style */
-    .signal-prayer{margin:1.5rem auto;padding:1rem;font-size:14px;line-height:1.6;color:#ccc;font-style:italic;max-width:700px}
+    .games .card{ grid-column: span 12; }
+    @media (min-width: 820px){
+      .games .card{ grid-column: span 4; }
+      .feat{ grid-column: span 7; }
+      .side{ grid-column: span 5; }
+    }
 
-    /* Bye Phonetics banner */
-    .phonetics{margin:28px 0;border:1px solid var(--edge);border-radius:var(--r);overflow:hidden;background:#0b0b0b}
-    .phonetics .inner{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
-    .phonetics h3{margin:6px 0 0;font-size:clamp(22px,3vw,28px);letter-spacing:.6px}
-    .phonetics p{margin:0;color:#ddd}
-    .stamp{font-weight:900;text-transform:uppercase;letter-spacing:1px;border:2px dashed var(--ink2);padding:6px 12px;border-radius:8px;color:#fff}
+    .tag{
+      display:inline-flex; align-items:center; gap:6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(15,22,32,.55);
+      font-size:12px;
+      color: var(--mut);
+    }
 
-    /* Nation Lighting + Pricing: fixed layout (block wrapper + inner grid) */
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+    /* Player embeds (aspect ratio wrapper) */
+    .player{
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(159,177,199,.12);
+      background: rgba(15,22,32,.55);
+    }
+    .player::before{
+      content:"";
+      display:block;
+      padding-top: 68.6%; /* default; overridden inline if desired */
+    }
+    .player iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
 
-    .tile{background:linear-gradient(145deg,#0c0c0c,#090909);border:1px solid var(--edge);border-radius:var(--r);padding:14px;position:relative;overflow:hidden}
-    .tile:before{content:"";position:absolute;inset:auto -40% -40% -40%;height:160px;background:radial-gradient(ellipse at center, rgba(0,255,200,.08), transparent 60%);filter:blur(10px)}
-    .tile h3,.tile h4{position:relative;margin:0 0 6px}
-    .mini{position:relative;font-size:13px;color:#bbb}
+    .row{
+      margin-top: 10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .muted{ color: var(--mut); font-size: 12.5px; }
 
-    .pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
-    @media (max-width:900px){.pricing-grid{grid-template-columns:1fr}}
+    footer{
+      margin-top: 22px;
+      color: var(--mut);
+      font-size: 12px;
+      text-align:center;
+    }
 
-    .plan{background:#0d0d0d;border:1px solid var(--edge);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
-    .plan h3{margin:0;font-size:18px}
-    .price{font-size:28px;font-weight:900}
-    .plan ul{margin:0 0 10px 18px;padding:0}
-    .plan li{margin:6px 0}
+    /* Bottom bar (Apps / Info / Help) */
+    .dock{
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 40;
+      border-top: 1px solid rgba(27,36,48,.85);
+      background: linear-gradient(to top, rgba(11,15,20,.98), rgba(11,15,20,.78));
+      backdrop-filter: blur(12px);
+    }
+    .dock .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px var(--pad);
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content: space-between;
+    }
+    .dock .left, .dock .right{ display:flex; gap:10px; align-items:center; }
+    .dockbtn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(17,26,36,.55);
+      color: var(--txt);
+      font-size: 13px;
+      cursor:pointer;
+      user-select:none;
+      min-width: 92px;
+      justify-content:center;
+    }
+    .dockbtn:hover{ border-color: rgba(159,177,199,.32); }
+    .kbd{
+      font-size:11px;
+      color: var(--mut);
+      border:1px solid rgba(159,177,199,.18);
+      padding: 3px 6px;
+      border-radius: 8px;
+      background: rgba(15,22,32,.55);
+    }
 
-    /* QR + Events */
-    .qr-card{display:grid;grid-template-columns:140px 1fr;gap:14px;align-items:center}
-    .qr{width:140px;height:140px;border-radius:8px;background:conic-gradient(from 180deg,#0b0b0b,#0f0f0f);display:flex;align-items:center;justify-content:center;border:1px dashed var(--edge);color:#777}
-    @media (max-width:700px){.qr-card{grid-template-columns:1fr}.qr{margin:0 auto}}
-
-    /* Toast/Note */
-    .note{background:#0b0b0b;border:1px solid var(--edge);border-radius:10px;padding:10px;color:#ccc;font-size:13px}
-
-    /* Exclusive ad slot */
-    .ad-exclusive{background:linear-gradient(90deg,#030303,#070707);color:#fff;border:2px solid rgba(255,42,42,.06);padding:14px;text-align:center;font-weight:800;letter-spacing:.6px;border-radius:10px;margin:12px 0}
-    .ad-exclusive .big{font-size:16px}
-    .ad-exclusive .small{color:var(--muted);font-weight:400;font-size:12px;margin-top:6px}
-
-    /* Discoveries */
-    .discoveries .item{display:flex;gap:12px;align-items:flex-start;border-top:1px dashed rgba(255,255,255,.03);padding:12px 0}
-    .discoveries .thumb{width:86px;height:60px;background:#070707;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#777;font-size:12px}
-
-    @media (prefers-reduced-motion: reduce){
-      *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-      .btn:hover{transform:none}
+    /* Modal */
+    dialog{
+      border: 1px solid rgba(159,177,199,.18);
+      border-radius: 18px;
+      background: rgba(17,26,36,.96);
+      color: var(--txt);
+      width: min(760px, calc(100% - 18px));
+      box-shadow: var(--shadow);
+      padding: 0;
+    }
+    dialog::backdrop{
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(4px);
+    }
+    .modal{
+      padding: 14px;
+    }
+    .modal h4{ margin: 0 0 8px; }
+    .modal p{ margin: 0; color: var(--mut); line-height: 1.45; }
+    .modal .actions{
+      margin-top: 12px;
+      display:flex;
+      justify-content:flex-end;
+      gap: 10px;
+    }
+    .closebtn{
+      padding: 10px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(42,59,82,.35);
+      cursor:pointer;
+      color: var(--txt);
     }
   </style>
-
-  <!-- JSON-LD: Organization + Website -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"SPRAXXX",
-    "url":"https://spraxxx.tv/",
-    "logo":"https://spraxxx.tv/og.jpg",
-    "sameAs":[
-      "https://spraxxx.com",
-      "https://spraxxx.ai",
-      "https://spraxxx.net"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "url":"https://spraxxx.tv/",
-    "name":"SPRAXXX.TV",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://spraxxx.tv/search?q={query}",
-      "query-input":"required name=query"
-    }
-  }
-  </script>
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <header role="banner">
-    <h1>SPRAXXX.TV 🔥</h1>
-    <p>Brotherhood on the air — open mic, truth, and movement.</p>
-    <nav class="domains" aria-label="SPRAXXX domains">
-      <a href="https://spraxxx.com" target="_blank" rel="noopener noreferrer">spraxxx.com</a>
-      <a href="https://spraxxx.ai" target="_blank" rel="noopener noreferrer">spraxxx.ai</a>
-      <a href="https://spraxxx.tv" target="_blank" rel="noopener noreferrer" aria-current="page">spraxxx.tv</a>
-      <a href="https://spraxxx.net" target="_blank" rel="noopener noreferrer">spraxxx.net</a>
-    </nav>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">S</div>
+        <div>
+          <h1>SPRAXXX.TV</h1>
+          <div class="sub">Arcade builds • archive classics • no spyware vibes</div>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <a class="pill" href="#games">Games</a>
+        <a class="pill" href="#archive">Archive</a>
+        <a class="pill" href="#updates">Updates</a>
+        <a class="pill" href="https://angry-wu.spraxxx.ai/games/" target="_blank" rel="noopener noreferrer">Angry-Wu Games</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="main" class="wrap">
-    <!-- Exclusive Ad -->
-    <section class="ad-exclusive" aria-label="House message">
-      <div class="big">🚫 ADVERTISING UNAVAILABLE — THIS SPACE IS RESERVED</div>
-      <div class="small">Estimated future value: <strong>$250,000/month</strong>. We don't sell out. Earn the mic.</div>
-    </section>
+  <main class="wrap">
+    <div class="hero" id="top">
+      <h2><span class="dot" aria-hidden="true"></span> Live build lane</h2>
+      <p>
+        This page is built to be simple: fast load, clean embeds, and a bottom bar that feels like an arcade control panel.
+      </p>
+      <div class="cta">
+        <a class="btn" href="#games">Open Games</a>
+        <a class="btn secondary" href="#archive">Watch Archive Classics</a>
+        <button class="btn secondary" id="btnAbout" type="button">What is this?</button>
+      </div>
+    </div>
 
-    <!-- Bye Phonetics -->
-    <section class="block phonetics" id="bye-phonetics" aria-labelledby="bye-title">
-      <div class="inner">
-        <span class="stamp" aria-hidden="true">Nation Shout</span>
-        <h2 id="bye-title">BYE, PHONETICS. HELLO, BROTHERHOOD.</h2>
-        <p>No phoniness. No phonetics. Just raw SPRAXXX.</p>
-        <div class="row" role="group" aria-label="Primary actions">
-          <a class="btn filled" href="#theaters">Find a Hall</a>
-          <a class="btn alt" href="#verification">Get Verified</a>
-          <a class="btn" href="https://spraxxx.me" target="_blank" rel="noopener noreferrer">Spraxxx.me</a>
-        </div>
+    <section id="games">
+      <div class="section-title">
+        <h3>Games</h3>
+        <span class="tag">Ship small • iterate fast</span>
+      </div>
+
+      <div class="grid games">
+        <article class="card">
+          <h4>PacRun</h4>
+          <p>Arcade loop + ledger mindset. Keep it tight, keep it fun.</p>
+          <div class="meta">
+            <a class="btn" href="https://angry-wu.spraxxx.ai/games/" target="_blank" rel="noopener noreferrer">Launch</a>
+            <span class="tag">HTML</span><span class="tag">JS</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h4>SoliDoku</h4>
+          <p>Puzzle grid. Blank is “unknown,” solution is “truth leaves a trace.”</p>
+          <div class="meta">
+            <a class="btn" href="https://angry-wu.spraxxx.ai/games/" target="_blank" rel="noopener noreferrer">Launch</a>
+            <span class="tag">Puzzle</span><span class="tag">HUD</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h4>Whack-A-Bot</h4>
+          <p>Stress relief with stats. Clean loop, instant feedback.</p>
+          <div class="meta">
+            <a class="btn" href="https://angry-wu.spraxxx.ai/games/" target="_blank" rel="noopener noreferrer">Launch</a>
+            <span class="tag">Arcade</span><span class="tag">Score</span>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- Track of the Week -->
-    <section class="block track-of-week" id="track-of-week" aria-labelledby="track-title">
-      <div class="banner top" aria-hidden="true">🎶 Track of the Week</div>
-      <div class="inner">
-        <h2 id="track-title" class="visually-hidden">Track of the Week</h2>
-        <div class="player">
-          <iframe
-            src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=6755399498497533"
-            title="StarMaker: Track of the Week"
-            loading="lazy"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            referrerpolicy="no-referrer"
-            allowfullscreen></iframe>
-        </div>
+    <section id="updates">
+      <div class="section-title">
+        <h3>Updates</h3>
+        <span class="tag">Readable • punchy</span>
       </div>
-      <div class="banner bottom" aria-hidden="true">🔥 Listen. Sing. Share. 🔥</div>
-      <div class="emojis" aria-hidden="true">🎤🎧💥</div>
-      <div class="tw-meta" aria-label="Track reactions">
-        <div class="tw-stars" aria-label="5 star rating" role="img">★★★★★</div>
-        <div class="tw-thumbs" aria-hidden="true">👍👍👍</div>
-        <div class="tw-title">The Nation’s Favorite Track</div>
+
+      <div class="grid">
+        <article class="card feat">
+          <h4>KingHorn &amp; Gusta Gusta — Grassroots Rising</h4>
+          <p>
+            Shoutout to KingHorn, the man carrying the flame of SPRAXXX Nation. With his brother Gusta Gusta from North Augusta,
+            they’re keeping it real, keeping it shining. Their family’s been known as the cow patty boys of Flip Hollow — hard work,
+            dirty boots, real grassroots. Now, they’re bringing that same grit to SPRAXXX Nation with the official T-shirts.
+          </p>
+          <div class="meta">
+            <span class="tag">SPRAXXXNation</span>
+            <span class="tag">T-Shirts soon</span>
+            <span class="tag">Built from sweat</span>
+          </div>
+        </article>
+
+        <aside class="card side">
+          <h4>Deployment checklist</h4>
+          <p class="muted">
+            Keep embeds accessible, keep performance sane, keep the layout locked.
+          </p>
+          <div class="meta">
+            <span class="tag">title + loading="lazy"</span>
+            <span class="tag">aspect ratio wrapper</span>
+            <span class="tag">fullscreen flags</span>
+          </div>
+          <div class="row">
+            <span class="muted">Status:</span>
+            <span class="tag" style="color:var(--good);border-color:rgba(74,222,128,.35);">calm_build</span>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <!-- Holiday Internet Archives -->
-    <section class="block" id="holiday-archives" aria-labelledby="holiday-archives-title">
-      <h2 id="holiday-archives-title">Holiday Internet Archive</h2>
-      <div class="inner">
-        <p class="muted">Holiday throwbacks from the vault. Press play.</p>
+    <section id="archive">
+      <div class="section-title">
+        <h3>Internet Archive Classic</h3>
+        <span class="tag">Press play</span>
+      </div>
 
-        <div class="player" style="aspect-ratio:560/384;">
+      <!-- 1 -->
+      <article class="card">
+        <h4>106 It’s Sports (2019-11)</h4>
+        <div class="player" style="--r:560/384">
           <iframe
             src="https://archive.org/embed/106itssports_201911"
             title="Internet Archive — 106 It's Sports (2019-11)"
             loading="lazy"
-            frameborder="0"
             allow="fullscreen"
             allowfullscreen
             webkitallowfullscreen="true"
-            mozallowfullscreen="true"></iframe>
+            mozallowfullscreen="true"
+          ></iframe>
         </div>
         <div class="row">
-          <a class="btn filled" href="https://archive.org/details/106itssports_201911" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+          <span class="muted">Tip: fullscreen works best on the embed’s own player controls.</span>
+          <a class="btn secondary" href="https://archive.org/details/106itssports_201911" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
         </div>
+      </article>
 
-        <div style="height:1px;background:#111;margin:14px 0;"></div>
-
-        <div class="player" style="aspect-ratio:560/384;">
+      <!-- 2 -->
+      <article class="card">
+        <h4>Ernest Saves Christmas (1993-12-11)</h4>
+        <div class="player">
           <iframe
             src="https://archive.org/embed/Ernest_Saves_Christmas_ABC_WOC_1993-12-11"
             title="Internet Archive — Ernest Saves Christmas (1993-12-11)"
             loading="lazy"
-            frameborder="0"
             allow="fullscreen"
             allowfullscreen
             webkitallowfullscreen="true"
-            mozallowfullscreen="true"></iframe>
+            mozallowfullscreen="true"
+          ></iframe>
         </div>
         <div class="row">
-          <a class="btn filled" href="https://archive.org/details/Ernest_Saves_Christmas_ABC_WOC_1993-12-11" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+          <span class="muted">If it doesn’t fill the box, check the CSS for .player iframe.</span>
+          <a class="btn secondary" href="https://archive.org/details/Ernest_Saves_Christmas_ABC_WOC_1993-12-11" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
         </div>
+      </article>
 
-        <div style="height:1px;background:#111;margin:14px 0;"></div>
-
-        <div class="player" style="aspect-ratio:560/384;">
+      <!-- 3 (placeholder example you can swap) -->
+      <article class="card">
+        <h4>The Miracle on 34th Street</h4>
+        <div class="player">
           <iframe
-            src="https://archive.org/embed/TheMiracleOn34thStreet"
+            src="https://archive.org/embed/TheMiracleon34thStreet"
             title="Internet Archive — The Miracle on 34th Street"
             loading="lazy"
-            frameborder="0"
             allow="fullscreen"
             allowfullscreen
             webkitallowfullscreen="true"
-            mozallowfullscreen="true"></iframe>
+            mozallowfullscreen="true"
+          ></iframe>
         </div>
         <div class="row">
-          <a class="btn filled" href="https://archive.org/details/TheMiracleOn34thStreet" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+          <span class="muted">Swap the embed slug above to whatever item you want.</span>
+          <a class="btn secondary" href="https://archive.org/details/TheMiracleon34thStreet" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
         </div>
-      </div>
+      </article>
     </section>
 
-    <!-- Nation Halls -->
-    <section class="block" id="theaters" aria-labelledby="theaters-title">
-      <h2 id="theaters-title">Nation Halls</h2>
-      <div class="inner">
-        <div class="grid-2">
-          <article class="tile" aria-labelledby="hall-glengarry">
-            <h3 id="hall-glengarry">Glengarry Hall</h3>
-            <p class="mini">Open Mic every Saturday. 20:00–23:00</p>
-          </article>
-
-          <article class="tile" aria-labelledby="hall-cornwall">
-            <h3 id="hall-cornwall">Cornwall Theater</h3>
-            <p class="mini">Special Shows and SPRAXXX Nights</p>
-          </article>
-
-          <article class="tile" aria-labelledby="hall-kingston">
-            <h3 id="hall-kingston">Kingston Stage</h3>
-            <p class="mini">Weekly Jam Sessions</p>
-          </article>
-
-          <article class="tile" aria-labelledby="hall-ottawa">
-            <h3 id="hall-ottawa">Ottawa Studio</h3>
-            <p class="mini">Recording & Live Stream Studio</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing / Membership -->
-    <section class="block" id="membership" aria-labelledby="membership-title">
-      <h2 id="membership-title">Membership</h2>
-      <div class="inner">
-        <div class="pricing-grid">
-          <article class="plan" aria-labelledby="plan-free">
-            <h3 id="plan-free">Free</h3>
-            <p class="price" aria-label="Price zero dollars">$0</p>
-            <ul>
-              <li>Access to streams</li>
-              <li>Community chat</li>
-            </ul>
-            <a href="#join" class="btn filled">Join Now</a>
-          </article>
-
-          <article class="plan" aria-labelledby="plan-pro">
-            <h3 id="plan-pro">Pro</h3>
-            <p class="price">$9.99</p>
-            <ul>
-              <li>All Free benefits</li>
-              <li>Exclusive tracks</li>
-            </ul>
-            <a href="#join" class="btn filled">Join Now</a>
-          </article>
-
-          <article class="plan" aria-labelledby="plan-elite">
-            <h3 id="plan-elite">Elite</h3>
-            <p class="price">$29.99</p>
-            <ul>
-              <li>All Pro benefits</li>
-              <li>VIP backstage</li>
-              <li>Priority support</li>
-            </ul>
-            <a href="#join" class="btn filled">Join Now</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Signal Prayer / Notes -->
-    <section class="block" aria-label="Nation Prayer">
-      <h2 class="visually-hidden">Nation Prayer</h2>
-      <div class="signal-prayer">
-        ✨ Nation Prayer: May the voice of the people be heard, and the brotherhood grow stronger every day.
-      </div>
-    </section>
-
-    <!-- QR Cards -->
-    <section class="block discoveries" aria-labelledby="qr-title">
-      <h2 id="qr-title">Quick Access</h2>
-      <div class="inner">
-        <div class="item qr-card">
-          <div class="qr" role="img" aria-label="QR code: Join Nation Chat">QR</div>
-          <div class="meta">
-            <h3>Scan to Join Nation Chat</h3>
-            <p class="mini">Instant access to live discussions and updates</p>
-          </div>
-        </div>
-
-        <div class="item qr-card">
-          <div class="qr" role="img" aria-label="QR code: Exclusive Track Downloads">QR</div>
-          <div class="meta">
-            <h3>Exclusive Track Downloads</h3>
-            <p class="mini">Get the latest tracks directly to your device</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Center -->
-    <section class="block" aria-labelledby="about-title">
-      <h2 id="about-title">About SPRAXXX.TV</h2>
-      <div class="inner">
-        <p>SPRAXXX.TV — Building brotherhood, music, and movement. Be part of the Nation.</p>
-      </div>
-    </section>
-
-    <!-- Verification anchor target -->
-    <section id="verification" class="note" aria-label="Verification note">
-      Looking to get verified? Your SPRAXXX Key lives at
-      <a href="https://spraxxx.com" target="_blank" rel="noopener noreferrer">spraxxx.com</a>.
-      One alias, one human. Dignity, not data mining.
-    </section>
-
-    <!-- Join anchor target -->
-    <section id="join" class="note" aria-label="Join instructions" style="margin-top:12px;">
-      Ready to roll? Join the Nation: hop in the chat, claim your alias, then step up to the mic. 📡
-    </section>
+    <footer>
+      © <span id="year"></span> SPRAXXX • Built for speed • No trackers in this file
+    </footer>
   </main>
 
-  <footer role="contentinfo">
-    &copy; 2025 SPRAXXX.TV — All Rights Reserved.
-  </footer>
+  <!-- Bottom bar -->
+  <div class="dock" role="navigation" aria-label="Dock">
+    <div class="inner">
+      <div class="left">
+        <button class="dockbtn" type="button" id="dockApps">Apps <span class="kbd">A</span></button>
+        <button class="dockbtn" type="button" id="dockInfo">Info <span class="kbd">I</span></button>
+        <button class="dockbtn" type="button" id="dockHelp">Help <span class="kbd">H</span></button>
+      </div>
+      <div class="right">
+        <span class="muted" id="clock" aria-label="Local time"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <dialog id="dlgApps" aria-label="Apps">
+    <div class="modal">
+      <h4>Apps</h4>
+      <p>Quick links to the live nodes.</p>
+      <div class="meta" style="margin-top:10px;">
+        <a class="btn" href="https://angry-wu.spraxxx.ai/games/" target="_blank" rel="noopener noreferrer">Angry-Wu /games</a>
+        <a class="btn secondary" href="#archive">Archive</a>
+        <a class="btn secondary" href="#games">Games</a>
+      </div>
+      <div class="actions">
+        <button class="closebtn" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlgInfo" aria-label="Info">
+    <div class="modal">
+      <h4>Info</h4>
+      <p>
+        This index is a single-file build: no external CSS, no JS libraries, no analytics.
+        It’s designed to host cards + stable embeds with proper sizing.
+      </p>
+      <div class="actions">
+        <button class="closebtn" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlgHelp" aria-label="Help">
+    <div class="modal">
+      <h4>Help</h4>
+      <p>
+        Keyboard shortcuts: <span class="kbd">A</span> Apps, <span class="kbd">I</span> Info, <span class="kbd">H</span> Help, <span class="kbd">Esc</span> Close.
+      </p>
+      <div class="actions">
+        <button class="closebtn" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlgAbout" aria-label="About">
+    <div class="modal">
+      <h4>What is this?</h4>
+      <p>
+        A clean landing page for SPRAXXX.TV: games, updates, and Internet Archive classics—built for fast deploys and predictable layout.
+      </p>
+      <div class="actions">
+        <button class="closebtn" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    (function(){
+      const $ = (s) => document.querySelector(s);
+
+      // year
+      $("#year").textContent = String(new Date().getFullYear());
+
+      // clock
+      const clock = $("#clock");
+      const tick = () => {
+        const d = new Date();
+        const hh = String(d.getHours()).padStart(2,"0");
+        const mm = String(d.getMinutes()).padStart(2,"0");
+        clock.textContent = `${hh}:${mm}`;
+      };
+      tick(); setInterval(tick, 1000 * 15);
+
+      // modal wiring
+      const openDlg = (id) => { const dlg = $(id); if (dlg && !dlg.open) dlg.showModal(); };
+      const closeAll = () => document.querySelectorAll("dialog[open]").forEach(d => d.close());
+
+      $("#dockApps").addEventListener("click", ()=>openDlg("#dlgApps"));
+      $("#dockInfo").addEventListener("click", ()=>openDlg("#dlgInfo"));
+      $("#dockHelp").addEventListener("click", ()=>openDlg("#dlgHelp"));
+      $("#btnAbout").addEventListener("click", ()=>openDlg("#dlgAbout"));
+
+      document.addEventListener("click", (e)=>{
+        if (e.target && e.target.matches("[data-close]")) closeAll();
+      });
+
+      // keyboard shortcuts
+      document.addEventListener("keydown", (e)=>{
+        if (e.key === "Escape") closeAll();
+        const k = e.key.toLowerCase();
+        if (k === "a") openDlg("#dlgApps");
+        if (k === "i") openDlg("#dlgInfo");
+        if (k === "h") openDlg("#dlgHelp");
+      });
+
+      // Ensure .player ratio works (fallback if you want different ratios later)
+      // You can override per player by setting padding-top inline if needed.
+    })();
+  </script>
 </body>
 </html>
