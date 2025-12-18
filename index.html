@@ -358,3 +358,363 @@
   </footer>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SPRAXXX.TV | The Nation Live</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SPRAXXX — brotherhood on the air: open mic, truth, and movement. Listen, speak, build the Nation." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="canonical" href="https://spraxxx.tv/" />
+
+  <!-- Icons / PWA (optional: swap paths if you have them) -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Social -->
+  <meta property="og:title" content="SPRAXXX.TV — The Nation Live" />
+  <meta property="og:description" content="Brotherhood on the air: open mic, truth, and movement. New StarMaker cover inside." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://spraxxx.tv/" />
+  <meta property="og:image" content="/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SPRAXXX.TV — The Nation Live" />
+  <meta name="twitter:description" content="Open mic, truth, and movement. New StarMaker cover inside." />
+  <meta name="twitter:image" content="/og.jpg" />
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://m.starmakerstudios.com" crossorigin />
+
+  <style>
+    :root{
+      --bg:#000;--fg:#fff;--ink:#00ffc8;--ink2:#ff2a2a;--muted:#9a9a9a;--card:#0a0a0a;--edge:#151515;--r:12px;
+      --glow:0 0 22px rgba(0,255,200,.15);--focus-ring:0 0 0 3px rgba(0,255,200,.35)
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+    a{color:var(--ink);text-decoration:none}
+    a:focus-visible,button:focus-visible,.btn:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+    .wrap{max-width:1080px;margin:0 auto;padding:18px 16px 80px}
+    .skip-link{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:16px;top:12px;width:auto;height:auto;background:#111;color:#fff;padding:8px 12px;border-radius:8px;border:1px solid var(--edge);z-index:1000}
+
+    header{padding:28px 16px 10px;text-align:center;border-bottom:1px solid #111;position:relative;overflow:hidden}
+    header:before{
+      content:"";position:absolute;inset:-40% -40% auto -40%;
+      height:240px;background:radial-gradient(ellipse at center, rgba(0,255,200,.08), transparent 60%);
+      filter:blur(12px);pointer-events:none
+    }
+    header h1{margin:0;font-size:clamp(30px,4.2vw,44px);letter-spacing:.5px}
+    header p{margin:6px 0 0;color:var(--muted)}
+    nav.domains{margin-top:10px;font-size:14px}
+    nav.domains a{color:#fff;opacity:.95;border:1px solid var(--edge);padding:6px 10px;border-radius:999px;display:inline-block;margin:4px 4px 0}
+    main h2{margin:0;padding:14px 16px;font-size:18px;background:#0f0f0f;border-bottom:1px solid var(--edge)}
+    .block{margin:28px 0;background:var(--card);border:1px solid var(--edge);border-radius:var(--r);overflow:hidden}
+    .inner{padding:14px}
+    .player{position:relative;aspect-ratio:16/9;width:100%;background:#000;border-radius:10px;overflow:hidden}
+    iframe{width:100%;height:100%;border:0}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-block;padding:10px 14px;font-weight:700;border:1px solid var(--ink);border-radius:10px;line-height:1}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.filled{background:var(--ink);color:#000}
+    .btn.alt{border-color:var(--ink2);color:#fff}
+    .muted{color:var(--muted);font-size:14px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    footer{text-align:center;padding:26px 12px;color:var(--muted);border-top:1px solid #111}
+
+    /* Track of the Week + Banners */
+    .track-of-week{position:relative}
+    .track-of-week .banner{background:var(--ink);color:#000;font-weight:900;text-align:center;padding:.9rem 1rem}
+    .track-of-week .banner.top{border-bottom:1px solid #008f79}
+    .track-of-week .banner.bottom{border-top:1px solid #008f79}
+    .track-of-week .emojis{display:flex;justify-content:center;gap:18px;margin:.6rem 0 .2rem}
+    .chip{display:inline-block;background:#111;border:1px solid var(--edge);border-radius:999px;padding:6px 10px;font-size:13px;color:#ddd}
+    .tw-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 12px 14px}
+    .tw-stars,.tw-thumbs{font-size:1.1rem;letter-spacing:2px}
+    .tw-title{font-weight:700}
+
+    /* Signal Prayer style */
+    .signal-prayer{margin:1.5rem auto;padding:1rem;font-size:14px;line-height:1.6;color:#ccc;font-style:italic;max-width:700px}
+
+    /* Shoutouts (retained for future use) */
+    .shout-card{background:#0e0e0e;border:1px solid var(--edge);border-radius:var(--r);padding:16px}
+
+    /* Bye Phonetics banner */
+    .phonetics{margin:28px 0;border:1px solid var(--edge);border-radius:var(--r);overflow:hidden;background:#0b0b0b}
+    .phonetics .inner{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
+    .phonetics h3{margin:6px 0 0;font-size:clamp(22px,3vw,28px);letter-spacing:.6px}
+    .phonetics p{margin:0;color:#ddd}
+    .stamp{font-weight:900;text-transform:uppercase;letter-spacing:1px;border:2px dashed var(--ink2);padding:6px 12px;border-radius:8px;color:#fff}
+
+    /* Theaters / Nation Lighting */
+    .lighting{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .lighting .tile{background:linear-gradient(145deg,#0c0c0c,#090909);border:1px solid var(--edge);border-radius:var(--r);padding:14px;position:relative;overflow:hidden}
+    .lighting .tile:before{content:"";position:absolute;inset:auto -40% -40% -40%;height:160px;background:radial-gradient(ellipse at center, rgba(0,255,200,.08), transparent 60%);filter:blur(10px)}
+    .lighting h4{margin:0 0 6px}
+    .mini{font-size:13px;color:#bbb}
+
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+    .plan{background:#0d0d0d;border:1px solid var(--edge);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
+    .plan h3{margin:0;font-size:18px}
+    .price{font-size:28px;font-weight:900}
+    .plan ul{margin:0 0 10px 18px;padding:0}
+    .plan li{margin:6px 0}
+    @media (max-width:900px){.pricing{grid-template-columns:1fr}}
+
+    /* QR + Events */
+    .qr-card{display:grid;grid-template-columns:140px 1fr;gap:14px;align-items:center}
+    .qr{width:140px;height:140px;border-radius:8px;background:conic-gradient(from 180deg,#0b0b0b,#0f0f0f);display:flex;align-items:center;justify-content:center;border:1px dashed var(--edge);color:#777}
+    @media (max-width:700px){.qr-card{grid-template-columns:1fr}.qr{margin:0 auto}}
+
+    /* Toast/Note */
+    .note{background:#0b0b0b;border:1px solid var(--edge);border-radius:10px;padding:10px;color:#ccc;font-size:13px}
+
+    /* Exclusive ad slot */
+    .ad-exclusive{background:linear-gradient(90deg,#030303,#070707);color:#fff;border:2px solid rgba(255,42,42,.06);padding:14px;text-align:center;font-weight:800;letter-spacing:.6px;border-radius:10px;margin:12px 0}
+    .ad-exclusive .big{font-size:16px}
+    .ad-exclusive .small{color:var(--muted);font-weight:400;font-size:12px;margin-top:6px}
+
+    /* Discoveries */
+    .discoveries .item{display:flex;gap:12px;align-items:flex-start;border-top:1px dashed rgba(255,255,255,.03);padding:12px 0}
+    .discoveries .thumb{width:86px;height:60px;background:#070707;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#777;font-size:12px}
+
+    /* Motion respect */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+      .btn:hover{transform:none}
+    }
+  </style>
+
+  <!-- JSON-LD: Organization + Website -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"SPRAXXX",
+    "url":"https://spraxxx.tv/",
+    "logo":"https://spraxxx.tv/og.jpg",
+    "sameAs":[
+      "https://spraxxx.com",
+      "https://spraxxx.ai",
+      "https://spraxxx.net"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "url":"https://spraxxx.tv/",
+    "name":"SPRAXXX.TV",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://spraxxx.tv/search?q={query}",
+      "query-input":"required name=query"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header role="banner">
+    <h1>SPRAXXX.TV 🔥</h1>
+    <p>Brotherhood on the air — open mic, truth, and movement.</p>
+    <nav class="domains" aria-label="SPRAXXX domains">
+      <a href="https://spraxxx.com" target="_blank" rel="noopener noreferrer">spraxxx.com</a>
+      <a href="https://spraxxx.ai" target="_blank" rel="noopener noreferrer">spraxxx.ai</a>
+      <a href="https://spraxxx.tv" target="_blank" rel="noopener noreferrer" aria-current="page">spraxxx.tv</a>
+      <a href="https://spraxxx.net" target="_blank" rel="noopener noreferrer">spraxxx.net</a>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap">
+    <!-- Exclusive Ad -->
+    <section class="ad-exclusive" aria-label="House message">
+      <div class="big">🚫 ADVERTISING UNAVAILABLE — THIS SPACE IS RESERVED</div>
+      <div class="small">Estimated future value: <strong>$250,000/month</strong>. We don't sell out. Earn the mic.</div>
+    </section>
+
+    <!-- Bye Phonetics -->
+    <section class="block phonetics" id="bye-phonetics" aria-labelledby="bye-title">
+      <div class="inner">
+        <span class="stamp" aria-hidden="true">Nation Shout</span>
+        <h2 id="bye-title">BYE, PHONETICS. HELLO, BROTHERHOOD.</h2>
+        <p>No phoniness. No phonetics. Just raw SPRAXXX.</p>
+        <div class="row" role="group" aria-label="Primary actions">
+          <a class="btn filled" href="#theaters">Find a Hall</a>
+          <a class="btn alt" href="#verification">Get Verified</a>
+          <a class="btn" href="https://spraxxx.me" target="_blank" rel="noopener noreferrer">Spraxxx.me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Track of the Week -->
+    <section class="block track-of-week" id="track-of-week" aria-labelledby="track-title">
+      <div class="banner top" aria-hidden="true">🎶 Track of the Week</div>
+      <div class="inner">
+        <h2 id="track-title" class="visually-hidden" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">Track of the Week</h2>
+        <div class="player">
+          <iframe
+            src="https://m.starmakerstudios.com/a-vue3/playrecording?recordingId=6755399498497533"
+            title="StarMaker: Track of the Week"
+            loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            referrerpolicy="no-referrer"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="banner bottom" aria-hidden="true">🔥 Listen. Sing. Share. 🔥</div>
+      <div class="emojis" aria-hidden="true">🎤🎧💥</div>
+      <div class="tw-meta" aria-label="Track reactions">
+        <div class="tw-stars" aria-label="5 star rating" role="img">★★★★★</div>
+        <div class="tw-thumbs" aria-hidden="true">👍👍👍</div>
+        <div class="tw-title">The Nation’s Favorite Track</div>
+      </div>
+    </section>
+
+    <!-- Holiday Internet Archives (ADDED) -->
+    <section class="block" id="holiday-archives" aria-labelledby="holiday-archives-title">
+      <h2 id="holiday-archives-title">Holiday Internet Archive</h2>
+      <div class="inner">
+        <p class="muted">Holiday throwbacks from the vault. Press play.</p>
+
+        <!-- 1) 106 It's Sports -->
+        <div class="player" style="aspect-ratio:560/384;">
+          <iframe
+            src="https://archive.org/embed/106itssports_201911"
+            title="Internet Archive — 106 It's Sports (2019-11)"
+            loading="lazy"
+            allowfullscreen></iframe>
+        </div>
+        <div class="row">
+          <a class="btn filled" href="https://archive.org/details/106itssports_201911" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+
+        <div style="height:1px;background:#111;margin:14px 0;"></div>
+
+        <!-- 2) Ernest Saves Christmas -->
+        <div class="player" style="aspect-ratio:560/384;">
+          <iframe
+            src="https://archive.org/embed/Ernest_Saves_Christmas_ABC_WOC_1993-12-11"
+            title="Internet Archive — Ernest Saves Christmas (1993-12-11)"
+            loading="lazy"
+            allowfullscreen></iframe>
+        </div>
+        <div class="row">
+          <a class="btn filled" href="https://archive.org/details/Ernest_Saves_Christmas_ABC_WOC_1993-12-11" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+
+        <div style="height:1px;background:#111;margin:14px 0;"></div>
+
+        <!-- 3) The Miracle on 34th Street -->
+        <div class="player" style="aspect-ratio:560/384;">
+          <iframe
+            src="https://archive.org/embed/TheMiracleOn34thStreet"
+            title="Internet Archive — The Miracle on 34th Street"
+            loading="lazy"
+            allowfullscreen></iframe>
+        </div>
+        <div class="row">
+          <a class="btn filled" href="https://archive.org/details/TheMiracleOn34thStreet" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nation Lighting -->
+    <section class="block lighting" id="theaters" aria-labelledby="theaters-title">
+      <h2 id="theaters-title" class="visually-hidden" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">Nation Halls</h2>
+      <article class="tile" aria-labelledby="hall-glengarry"><h3 id="hall-glengarry">Glengarry Hall</h3><p class="mini">Open Mic every Saturday. 20:00–23:00</p></article>
+      <article class="tile" aria-labelledby="hall-cornwall"><h3 id="hall-cornwall">Cornwall Theater</h3><p class="mini">Special Shows and SPRAXXX Nights</p></article>
+      <article class="tile" aria-labelledby="hall-kingston"><h3 id="hall-kingston">Kingston Stage</h3><p class="mini">Weekly Jam Sessions</p></article>
+      <article class="tile" aria-labelledby="hall-ottawa"><h3 id="hall-ottawa">Ottawa Studio</h3><p class="mini">Recording & Live Stream Studio</p></article>
+    </section>
+
+    <!-- Pricing / Membership -->
+    <section class="block pricing" id="membership" aria-labelledby="membership-title">
+      <h2 id="membership-title" class="visually-hidden" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">Membership</h2>
+      <article class="plan" aria-labelledby="plan-free">
+        <h3 id="plan-free">Free</h3>
+        <p class="price" aria-label="Price zero dollars">$0</p>
+        <ul>
+          <li>Access to streams</li>
+          <li>Community chat</li>
+        </ul>
+        <a href="#join" class="btn filled">Join Now</a>
+      </article>
+      <article class="plan" aria-labelledby="plan-pro">
+        <h3 id="plan-pro">Pro</h3>
+        <p class="price">$9.99</p>
+        <ul>
+          <li>All Free benefits</li>
+          <li>Exclusive tracks</li>
+        </ul>
+        <a href="#join" class="btn filled">Join Now</a>
+      </article>
+      <article class="plan" aria-labelledby="plan-elite">
+        <h3 id="plan-elite">Elite</h3>
+        <p class="price">$29.99</p>
+        <ul>
+          <li>All Pro benefits</li>
+          <li>VIP backstage</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#join" class="btn filled">Join Now</a>
+      </article>
+    </section>
+
+    <!-- Signal Prayer / Notes -->
+    <section class="block signal-prayer" aria-label="Nation Prayer">
+      ✨ Nation Prayer: May the voice of the people be heard, and the brotherhood grow stronger every day.
+    </section>
+
+    <!-- QR Cards -->
+    <section class="block discoveries" aria-labelledby="qr-title">
+      <h2 id="qr-title" class="visually-hidden" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">Quick Access</h2>
+      <div class="item qr-card">
+        <div class="qr" role="img" aria-label="QR code: Join Nation Chat">QR</div>
+        <div class="meta">
+          <h3>Scan to Join Nation Chat</h3>
+          <p class="mini">Instant access to live discussions and updates</p>
+        </div>
+      </div>
+      <div class="item qr-card">
+        <div class="qr" role="img" aria-label="QR code: Exclusive Track Downloads">QR</div>
+        <div class="meta">
+          <h3>Exclusive Track Downloads</h3>
+          <p class="mini">Get the latest tracks directly to your device</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Center -->
+    <section class="block about-center" aria-labelledby="about-title">
+      <h2 id="about-title" class="visually-hidden" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">About SPRAXXX.TV</h2>
+      <p>SPRAXXX.TV — Building brotherhood, music, and movement. Be part of the Nation.</p>
+    </section>
+
+    <!-- Verification anchor target -->
+    <section id="verification" class="note" aria-label="Verification note">
+      Looking to get verified? Your SPRAXXX Key lives at <a href="https://spraxxx.com" target="_blank" rel="noopener noreferrer">spraxxx.com</a>. One alias, one human. Dignity, not data mining.
+    </section>
+
+    <!-- Join anchor target -->
+    <section id="join" class="note" aria-label="Join instructions">
+      Ready to roll? Join the Nation: hop in the chat, claim your alias, then step up to the mic. 📡
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    &copy; 2025 SPRAXXX.TV — All Rights Reserved.
+  </footer>
+</body>
+</html>
