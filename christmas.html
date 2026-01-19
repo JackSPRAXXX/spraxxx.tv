@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Christmas Classics — SPRAXXX.TV</title>
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#111a24;
+      --panel2:#0f1620;
+      --line:#1b2430;
+      --txt:#e9eef5;
+      --mut:#9fb1c7;
+      --acc:#2a3b52;
+      --good:#4ade80;
+      --warn:#fbbf24;
+      --bad:#ff6b6b;
+
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max: 1100px;
+      --pad: 14px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 30% 0%, rgba(42,59,82,.35), transparent 60%),
+                  radial-gradient(900px 600px at 80% 30%, rgba(42,59,82,.22), transparent 60%),
+                  var(--bg);
+      color:var(--txt);
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 18px var(--pad) 90px; }
+
+    header{
+      position: sticky;
+      top:0;
+      z-index: 20;
+      background: linear-gradient(to bottom, rgba(11,15,20,.92), rgba(11,15,20,.65));
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(27,36,48,.6);
+    }
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 14px var(--pad);
+      display:flex;
+      align-items:center;
+      gap:12px;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 220px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, #2a3b52, #0f1620);
+      border:1px solid rgba(159,177,199,.22);
+      box-shadow: var(--shadow);
+      display:grid; place-items:center;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand h1{
+      margin:0;
+      font-size:15px;
+      letter-spacing:.6px;
+    }
+    .brand .sub{
+      margin:2px 0 0;
+      font-size:12px;
+      color:var(--mut);
+    }
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .pill{
+      border:1px solid rgba(159,177,199,.18);
+      background: rgba(17,26,36,.55);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      color: var(--mut);
+    }
+    .pill:hover{ color: var(--txt); border-color: rgba(159,177,199,.32); text-decoration:none; }
+
+    .hero{
+      margin-top: 14px;
+      padding: 18px;
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(17,26,36,.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero h2{ margin:0 0 8px; font-size:18px; letter-spacing:.3px; }
+    .hero p{ margin:0; color:var(--mut); line-height:1.45; }
+
+    .card{
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(17,26,36,.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      overflow:hidden;
+      margin-bottom: 16px;
+    }
+    .card h4{ margin:0 0 8px; font-size: 15px; }
+    .card p{ margin:0; color: var(--mut); line-height:1.45; }
+
+    .tag{
+      display:inline-flex; align-items:center; gap:6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(15,22,32,.55);
+      font-size:12px;
+      color: var(--mut);
+    }
+
+    .player{
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(159,177,199,.12);
+      background: rgba(15,22,32,.55);
+    }
+    .player::before{
+      content:"";
+      display:block;
+      padding-top: 68.6%;
+    }
+    .player iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    .row{
+      margin-top: 10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .muted{ color: var(--mut); font-size: 12.5px; }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(159,177,199,.18);
+      background: rgba(42,59,82,.35);
+      color: var(--txt);
+      font-size: 13px;
+      cursor:pointer;
+      user-select:none;
+      text-decoration:none;
+    }
+    .btn:hover{ border-color: rgba(159,177,199,.35); background: rgba(42,59,82,.5); text-decoration:none; }
+    .btn.secondary{ background: rgba(17,26,36,.55); color: var(--mut); }
+
+    footer{
+      margin-top: 22px;
+      color: var(--mut);
+      font-size: 12px;
+      text-align:center;
+      padding-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">S</div>
+        <div>
+          <h1>SPRAXXX.TV</h1>
+          <div class="sub">Christmas Classics • Holiday nostalgia</div>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="boob-tube.html">Boob Tube</a>
+        <a class="pill" href="commercials.html">Commercials</a>
+        <a class="pill" href="marathons.html">Marathons</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <h2>🎄 Christmas Classics</h2>
+      <p>
+        Vintage holiday specials, Christmas commercials from the 80s, and rare TV recordings. No subscription services. No geo-blocking. Just pure holiday nostalgia.
+      </p>
+    </div>
+
+    <section>
+      <article class="card">
+        <h4>1980s Christmas Television Commercials Archive (500+ Commercials, 4 Hours)</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          The crown jewel: almost 500 individual Christmas commercials from the 1980s. Includes Coca-Cola ads, mall Santa commercials, toy ads, and retail commercials. No repeats.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/80sChristmasCommercials"
+            title="Internet Archive — 1980s Christmas Commercials"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">4 hours of pure Christmas nostalgia.</span>
+          <a class="btn secondary" href="https://archive.org/details/80sChristmasCommercials" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>80's Christmas Specials With Commercials</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          A Garfield Christmas, Claymation Christmas Carol, Sesame Street On Ice, and Bugs Bunny's Looney Christmas Tales — all with original commercials intact.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/80s-christmas-specials-with-commercials"
+            title="Internet Archive — 80s Christmas Specials"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">Perfect VHS time capsule.</span>
+          <a class="btn secondary" href="https://archive.org/details/80s-christmas-specials-with-commercials" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>A Very Special Christmas With Beavis And Butthead (1995)</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          Rare 1995 Christmas special that hasn't been officially released due to licensing issues. TV rip preserved for posterity.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/a-very-special-christmas-with-beavis-and-butthead-TVRiP"
+            title="Internet Archive — Beavis Christmas Special 1995"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">Never officially released. Here it is anyway.</span>
+          <a class="btn secondary" href="https://archive.org/details/a-very-special-christmas-with-beavis-and-butthead-TVRiP" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>Ernest Saves Christmas (1993-12-11)</h4>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/Ernest_Saves_Christmas_ABC_WOC_1993-12-11"
+            title="Internet Archive — Ernest Saves Christmas (1993-12-11)"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">Ernest does it again.</span>
+          <a class="btn secondary" href="https://archive.org/details/Ernest_Saves_Christmas_ABC_WOC_1993-12-11" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>The Miracle on 34th Street</h4>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/TheMiracleon34thStreet"
+            title="Internet Archive — The Miracle on 34th Street"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">The classic Christmas film.</span>
+          <a class="btn secondary" href="https://archive.org/details/TheMiracleon34thStreet" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>Retro 80s Christmas Toy Commercials (1985)</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          Christmas toy commercials from 1985 including Transformers, She-Ra, and other classic 80s toys. Peak holiday advertising nostalgia.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/she-ra-1985-christmas-commercials"
+            title="Internet Archive — 1985 Christmas Toy Ads"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">Every kid's dream Christmas list.</span>
+          <a class="btn secondary" href="https://archive.org/details/she-ra-1985-christmas-commercials" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>Holidays Are Coming - Coca-Cola Christmas Commercial</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          The iconic "Holidays Are Coming" Coca-Cola commercial featuring the illuminated truck convoy. One of the most recognizable holiday ads of all time.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/CocaColaChristmas"
+            title="Internet Archive — Coca-Cola Christmas Commercial"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">You know Christmas is coming when you see this.</span>
+          <a class="btn secondary" href="https://archive.org/details/CocaColaChristmas" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>MTV Christmas Promos (1985)</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          MTV Christmas promotional bumpers and segments from 1985. Vintage MTV holiday vibes with that distinctive 80s aesthetic.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/christmas-promo-mtv-1985"
+            title="Internet Archive — MTV Christmas 1985"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">MTV doing Christmas right.</span>
+          <a class="btn secondary" href="https://archive.org/details/christmas-promo-mtv-1985" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      © <span id="year"></span> SPRAXXX • Built for speed • No trackers
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+  </script>
+</body>
+</html>

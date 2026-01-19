@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Saturday Marathons — SPRAXXX.TV</title>
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel:#111a24;
+      --panel2:#0f1620;
+      --line:#1b2430;
+      --txt:#e9eef5;
+      --mut:#9fb1c7;
+      --acc:#2a3b52;
+      --good:#4ade80;
+      --warn:#fbbf24;
+      --bad:#ff6b6b;
+
+      --radius:18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --max: 1100px;
+      --pad: 14px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 30% 0%, rgba(42,59,82,.35), transparent 60%),
+                  radial-gradient(900px 600px at 80% 30%, rgba(42,59,82,.22), transparent 60%),
+                  var(--bg);
+      color:var(--txt);
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 18px var(--pad) 90px; }
+
+    header{
+      position: sticky;
+      top:0;
+      z-index: 20;
+      background: linear-gradient(to bottom, rgba(11,15,20,.92), rgba(11,15,20,.65));
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(27,36,48,.6);
+    }
+    .topbar{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 14px var(--pad);
+      display:flex;
+      align-items:center;
+      gap:12px;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 220px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, #2a3b52, #0f1620);
+      border:1px solid rgba(159,177,199,.22);
+      box-shadow: var(--shadow);
+      display:grid; place-items:center;
+      font-weight:800;
+      letter-spacing:.5px;
+    }
+    .brand h1{
+      margin:0;
+      font-size:15px;
+      letter-spacing:.6px;
+    }
+    .brand .sub{
+      margin:2px 0 0;
+      font-size:12px;
+      color:var(--mut);
+    }
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .pill{
+      border:1px solid rgba(159,177,199,.18);
+      background: rgba(17,26,36,.55);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      color: var(--mut);
+    }
+    .pill:hover{ color: var(--txt); border-color: rgba(159,177,199,.32); text-decoration:none; }
+
+    .hero{
+      margin-top: 14px;
+      padding: 18px;
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(17,26,36,.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero h2{ margin:0 0 8px; font-size:18px; letter-spacing:.3px; }
+    .hero p{ margin:0; color:var(--mut); line-height:1.45; }
+
+    .card{
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(17,26,36,.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      overflow:hidden;
+      margin-bottom: 16px;
+    }
+    .card h4{ margin:0 0 8px; font-size: 15px; }
+    .card p{ margin:0; color: var(--mut); line-height:1.45; }
+
+    .tag{
+      display:inline-flex; align-items:center; gap:6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(159,177,199,.14);
+      background: rgba(15,22,32,.55);
+      font-size:12px;
+      color: var(--mut);
+    }
+
+    .player{
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(159,177,199,.12);
+      background: rgba(15,22,32,.55);
+    }
+    .player::before{
+      content:"";
+      display:block;
+      padding-top: 68.6%;
+    }
+    .player iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    .row{
+      margin-top: 10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .muted{ color: var(--mut); font-size: 12.5px; }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border:1px solid rgba(159,177,199,.18);
+      background: rgba(42,59,82,.35);
+      color: var(--txt);
+      font-size: 13px;
+      cursor:pointer;
+      user-select:none;
+      text-decoration:none;
+    }
+    .btn:hover{ border-color: rgba(159,177,199,.35); background: rgba(42,59,82,.5); text-decoration:none; }
+    .btn.secondary{ background: rgba(17,26,36,.55); color: var(--mut); }
+
+    footer{
+      margin-top: 22px;
+      color: var(--mut);
+      font-size: 12px;
+      text-align:center;
+      padding-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">S</div>
+        <div>
+          <h1>SPRAXXX.TV</h1>
+          <div class="sub">Saturday Marathons • Local TV nostalgia</div>
+        </div>
+      </div>
+      <nav aria-label="Primary">
+        <a class="pill" href="index.html">Home</a>
+        <a class="pill" href="boob-tube.html">Boob Tube</a>
+        <a class="pill" href="christmas.html">Christmas</a>
+        <a class="pill" href="commercials.html">Commercials</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <h2>📡 Saturday Marathons & Local TV</h2>
+      <p>
+        When TV was local. When Saturday mornings meant cartoons and afternoons meant movie blocks. PBS pledge drives, public access, regional broadcasting—the golden age of community television.
+      </p>
+    </div>
+
+    <section>
+      <article class="card">
+        <h4>WOR-TV Channel 9 - 1980s Movie Archive (NYC)</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          Famous programming blocks including "Fright Night," "Four O'Clock Movie," and "9 in the Afternoon" from New York's WOR-TV.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/wor-tv-and-rko-general-1980s-movie-archive-and-graphics"
+            title="Internet Archive — WOR-TV Movie Archive"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">Classic NYC local TV movie blocks.</span>
+          <a class="btn secondary" href="https://archive.org/details/wor-tv-and-rko-general-1980s-movie-archive-and-graphics" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>ABC Saturday Morning Cartoons (December 19, 1981)</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          2-hour block of ABC Saturday morning cartoons and commercials from December 1981. Authentic Saturday morning marathon experience.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/vts-01-1_20200929"
+            title="Internet Archive — ABC Saturday Morning 1981"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">Saturday morning in 1981.</span>
+          <a class="btn secondary" href="https://archive.org/details/vts-01-1_20200929" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>KSCH-58 Saturday Afternoon Movie (Sacramento, 1988)</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          Saturday Afternoon Movie bumpers and commercials from November 5, 1988. Authentic local TV station programming.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/capture-a-4644"
+            title="Internet Archive — KSCH Saturday Movie 1988"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">Saturday afternoon in Sacramento.</span>
+          <a class="btn secondary" href="https://archive.org/details/capture-a-4644" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>PBS (KTCA) Programming (Minneapolis, 1994)</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          Content aired on PBS station KTCA-TV during "Victor Borge II: Then and Now" special in 1994.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/KTCAVideo"
+            title="Internet Archive — PBS KTCA 1994"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">Local PBS vibes from the 90s.</span>
+          <a class="btn secondary" href="https://archive.org/details/KTCAVideo" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>Manhattan Cable TV Picture Classifieds (Early 80s)</h4>
+        <p style="margin:8px 0; color:var(--mut); line-height:1.45;">
+          Approximately 12 minutes of Manhattan Cable TV Picture Classifieds from around midnight in early April, early 1980s. Rotating classified ads for restaurants, psychic services, VCR repair, health clubs.
+        </p>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/manhattan-public-access-edited"
+            title="Internet Archive — Manhattan Cable Classifieds"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">Midnight in Manhattan, early 80s.</span>
+          <a class="btn secondary" href="https://archive.org/details/manhattan-public-access-edited" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h4>106 It's Sports (2019-11)</h4>
+        <div class="player">
+          <iframe
+            src="https://archive.org/embed/106itssports_201911"
+            title="Internet Archive — 106 It's Sports (2019-11)"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="row">
+          <span class="muted">Sports commentary from the archives.</span>
+          <a class="btn secondary" href="https://archive.org/details/106itssports_201911" target="_blank" rel="noopener noreferrer">Open on Archive.org</a>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      © <span id="year"></span> SPRAXXX • Built for speed • No trackers
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+  </script>
+</body>
+</html>
